@@ -1,11 +1,12 @@
 export default {
 	start: 'Digital Transformation',
-	'start.welcome': 'Welcome, world!',
-	'start.newProject': 'Start a new project',
-	'start.config': 'Configuration',
-	'start.migrate': 'Migrate to Astro',
+	'start.welcome': 'What is it?',
+	'start.newProject': 'Cloud Computing',
+	'start.newProject.components': 'Cloud Components',
+	'start.config': 'Cloud Hands-on',
+	'start.migrate': 'DevOps',
 
-	guides: 'API',
+	guides: 'AI',
 	'guides.routing': 'Routing and navigation',
 	'guides.ui': 'Build your UI',
 	'guides.content': 'Add content to your site',

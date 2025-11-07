@@ -28,7 +28,7 @@ const docSearchStrings =
 		}, {} as any);
 ---
 
-<sl-doc-search data-translations={JSON.stringify(docSearchStrings)}>
+<!-- <sl-doc-search data-translations={JSON.stringify(docSearchStrings)}>
 	<button
 		type="button"
 		class="DocSearch DocSearch-Button"
@@ -48,7 +48,7 @@ const docSearchStrings =
 		</span>
 		<span class="DocSearch-Button-Keys"></span>
 	</button>
-</sl-doc-search>
+</sl-doc-search> -->
 
 <script>
 	import docsearch from '@docsearch/js';
@@ -56,18 +56,19 @@ const docSearchStrings =
 	// @ts-expect-error todo: add proper type casting
 	const translations = JSON.parse(document.querySelector('sl-doc-search').dataset.translations);
 
+	// Algolia Settings
 	docsearch({
 		container: 'sl-doc-search',
-		appId: '7AFBU8EPJU',
-		indexName: 'astro',
-		apiKey: '4440670147c44d744fd8da35ff652518',
+		appId: '',
+		indexName: '',
+		apiKey: '',
 		searchParameters: {
 			facetFilters: [[`lang:${location.pathname.split('/')[1]}`]],
 			attributesToHighlight: ['hierarchy.lvl0'],
 		},
 		insights: true,
 		getMissingResultsUrl: ({ query }: { query: string }) =>
-			`https://github.com/withastro/docs/issues/new?title=Missing+results+for+query+%22${encodeURIComponent(
+			`https://github.com/apiprimer/docs.apiprimer.com/issues/new?title=Missing+results+for+query+%22${encodeURIComponent(
 				query
 			)}%22`,
 		transformItems: (items) => {

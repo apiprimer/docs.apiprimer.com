@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 await run();
 
 async function run() {
-	const repo = 'withastro/docs';
+	const repo = 'apiprimer/docs.apiprimer.com';
 	console.info(`Fetching contributors for ${repo}…`);
 
 	const contributors = await getAllContributors(repo);
@@ -32,7 +32,7 @@ async function recursiveFetch(endpoint: string, page = 1): Promise<Contributor[]
 			method: 'GET',
 			headers: {
 				Authorization: token && `Basic ${Buffer.from(token, 'binary').toString('base64')}`,
-				'User-Agent': 'astro-docs/1.0',
+				'User-Agent': 'apiprimer-docs/1.0',
 			},
 		});
 

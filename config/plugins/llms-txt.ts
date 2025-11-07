@@ -34,8 +34,8 @@ export const starlightPluginLlmsTxt = () =>
 				paths: ['en/recipes/**'],
 			},
 			{
-				label: 'Build a Blog Tutorial',
-				description: 'a step-by-step guide to building a basic blog with Astro',
+				label: 'Build in cloud',
+				description: 'a step-by-step guide to building in cloud with AWS',
 				paths: ['en/tutorial/**'],
 			},
 			{
@@ -86,7 +86,7 @@ export const starlightPluginLlmsTxt = () =>
 		// Exclude pages from the abridged `llms-small.txt` file designed for smaller context windows.
 		exclude: [
 			// Landing page doesn’t really include any helpful content on its own, so it is excluded.
-			'en/getting-started',
+			'en/home',
 			// We can exclude this from the abridged docs as nonessential.
 			'en/contribute',
 			// Legacy flags and old upgrade guides also seem reasonable to exclude from the abridged docs.

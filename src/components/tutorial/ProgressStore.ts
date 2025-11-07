@@ -112,7 +112,7 @@ type ProgressState = Record<string, PageState>;
  *
  */
 export class ProgressStore {
-	private static key = 'astro-tutorial-progress';
+	private static key = 'apiprimer-tutorial-progress';
 	private static pageKey = ProgressStore.slugFromPathname(window.location.pathname);
 	private static state: ProgressState = {
 		[ProgressStore.pageKey]: { done: false, lists: {} },

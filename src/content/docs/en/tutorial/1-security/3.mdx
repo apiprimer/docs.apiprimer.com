@@ -1,0 +1,35 @@
+---
+type: tutorial
+title: Create Roles
+description: |-
+  Tutorial: Build in cloud: Security —
+  Create users with least privilege access to your cloud account.
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+1. Navigate to the IAM service in the AWS Management Console.
+2. In the IAM console, choose "Roles" from the left-hand navigation pane.
+3. Click on the "Create role" button.
+4. In the "Choose a trusted entity" window, select the `AWS service`
+5. Choose the specific use cases, now select `EC2`, this will allow EC2 instances to call AWS services on your behalf.
+6. Click on "Next: Permissions".
+7. Select the existing policies to assign permissions to the role. Search for `S3` and select the `AmazonS3FullAccess` and `AmazonDynamoDBReadOnlyAccess`
+8. Click on "Next: Review".
+9. Provide a name `myrole` and review the role details, including permissions and tags.
+10. Click on "Create role".
+
+The newly created role will appear in the list of roles.
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have created a new role with existing policies.
+</Checklist>
+</Box>
+
+{/*
+### Resources
+
+- <p>[FreeCodeCamp.org](https://freecodecamp.org) <Badge class="neutral-badge" text="external" /> — a free educational site with full courses or quick refreshers in HTML, CSS, JS, and more.</p> */}

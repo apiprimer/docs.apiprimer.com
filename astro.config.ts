@@ -28,6 +28,7 @@ export default defineConfig({
 		]),
 		starlight({
 			title: 'Docs',
+			customCss: ['./src/assets/theme.css'],
 			expressiveCode: {
 				plugins: [pluginCollapsibleSections()],
 			},
@@ -47,14 +48,14 @@ export default defineConfig({
 			},
 			routeMiddleware: './src/routeData.ts',
 			editLink: {
-				baseUrl: 'https://github.com/apiprimer/docs/edit/main',
+				baseUrl: 'https://github.com/apiprimer/docs.apiprimer.com/edit/main',
 			},
 			defaultLocale: 'en',
 			locales: localesConfig,
 			sidebar,
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/astro' },
-				{ icon: 'discord', label: 'Discord', href: 'https://astro.build/chat' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/apiprimer/docs.apiprimer.com' },
+				{ icon: 'slack', label: 'Slack', href: 'https://join.slack.com/t/campus2corpc2c/shared_invite/zt-28ll0levk-9_Zbo8rM0b8MjKNJwyVxSA' },
 			],
 			pagefind: false,
 			head: [

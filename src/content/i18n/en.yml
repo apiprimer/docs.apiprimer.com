@@ -1,5 +1,5 @@
 # Site settings
-site.title: Astro Documentation
+site.title: API Primer Documentation
 # Left Sidebar
 leftSidebar.sponsoredBy: Sponsored by
 # Footer
@@ -51,7 +51,7 @@ progress.done: Complete
 # Tutorial Navigation
 tutorial.trackerLabel: Tutorial Tracker
 tutorial.unit: Unit
-tutorial.title.prefix: 'Build a blog tutorial: {{title}}'
+tutorial.title.prefix: 'Build in cloud: {{title}}'
 # Tutorial
 tutorial.getReady: Get ready to…
 # Code snippet vocabulary

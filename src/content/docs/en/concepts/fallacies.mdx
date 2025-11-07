@@ -1,0 +1,33 @@
+---
+title: 8 Fallacies
+description: Learn about how Astro's islands architecture helps keep sites fast.
+i18nReady: true
+---
+
+The fallacies (a false belief) of distributed computing are a collection of assertions made by L Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make.
+
+Source Pic: https://architecturenotes.co
+
+![fallacies](~/assets/dt/fallacies.jpg)
+
+<Fragment slot="source">Source: [Islands Architecture: Jason Miller](https://jasonformat.com/islands-architecture/)</Fragment>
+
+1. **The network is reliable**: The network is not always reliable. There can be outages, packet loss, and other problems. You should not assume that the network will always be available.
+
+2. **Latency is zero**: Latency is the time it takes for a request to be sent to a remote server and for a response to be received. Latency is not zero, and it can be significant, especially for geographically distributed systems. You should design your applications to handle high latency.
+
+3. **Bandwidth is infinite**: Bandwidth is the amount of data that can be transmitted over a network connection. Bandwidth is not infinite, and it can be a bottleneck for distributed applications. You should design your applications to minimize the amount of data that is transmitted over the network.
+
+4. **The network is secure**: The network is not secure. There are many threats to security on the network, such as hackers, viruses, and malware. You should take steps to protect your applications from attack.
+
+5. **Topology doesn't change**: The topology of a network is the arrangement of the network devices and the connections between them. The topology of a network can change, for example, if a device is added or removed, or if a connection is broken. You should design your applications to be resilient to changes in topology.
+
+6. **There is one administrator**: There is not always one administrator for a distributed system. There may be multiple administrators, and they may be located in different geographical locations. You should design your applications to be able to handle multiple administrators and different administrative domains.
+
+7. **Transport cost is zero**: The cost of transporting data over a network is not zero. The cost of transport can vary depending on the distance between the sender and receiver, the type of network connection, and the amount of data being transmitted. You should design your applications to minimize the amount of data that is transmitted over the network.
+
+8. **The network is homogeneous**: The network is not homogeneous. There may be different types of network devices, different types of network connections, and different operating systems running on the network. You should design your applications to be able to handle different types of network devices, connections, and operating systems.
+
+:::note
+By understanding these fallacies, programmers can avoid making mistakes that can lead to performance problems, security vulnerabilities, and other problems in distributed applications. [Know more](https://architecturenotes.co/fallacies-of-distributed-systems/)
+:::

@@ -14,7 +14,7 @@ export const BaseStyles = html`
 				'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 
 			/* Light theme colors */
-			--ln-color-white: #f9fafb;
+			--ln-color-white: #ef0b81ff;
 			--ln-color-gray-1: #f3f4f6;
 			--ln-color-gray-2: #e5e7eb;
 			--ln-color-gray-3: #d1d5db;
@@ -23,7 +23,7 @@ export const BaseStyles = html`
 			--ln-color-gray-6: #4b5563;
 			--ln-color-gray-7: #374151;
 			--ln-color-black: #030712;
-			--ln-color-blue: #3b82f6;
+			--ln-color-blue: #a206f6ff;
 			--ln-color-orange: #f97316;
 			--ln-color-purple: #a855f7;
 
@@ -40,11 +40,11 @@ export const BaseStyles = html`
 		@media (prefers-color-scheme: dark) {
 			:root {
 				/* Dark theme colors */
-				--ln-color-white: #030712;
-				--ln-color-gray-1: #374151;
-				--ln-color-gray-2: #4b5563;
-				--ln-color-gray-3: #6b7280;
-				--ln-color-gray-4: #9ca3af;
+				--ln-color-white: #032991ff;
+				--ln-color-gray-1: #8ab206ff;
+				--ln-color-gray-2: #042d66ff;
+				--ln-color-gray-3: #df8005ff;
+				--ln-color-gray-4: #004dd2ff;
 				--ln-color-gray-5: #d1d5db;
 				--ln-color-gray-6: #e5e7eb;
 				--ln-color-gray-7: #f3f4f6;

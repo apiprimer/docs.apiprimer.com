@@ -1,19 +1,19 @@
 ---
 import { Image } from 'astro:assets';
-import CodingInPublic from './CodingInPublic.png';
+import John from './John.jpeg';
 import { LinkButton } from '@astrojs/starlight/components';
 
-const offerUrl = 'https://learnastro.dev?code=ASTRO_PROMO';
+const offerUrl = 'https://apiprimer.com/contact?name=John&Message=I%20am%20interested%20in%20learning%20more%20about%20C2C%20Workshop.';
 
 const idCount = (((Astro.locals as any)._ad_render_id as number | undefined) ??= 1);
 (Astro.locals as any)._ad_render_id++;
-const headingId = `learn-astro-course-${idCount}`;
+const headingId = `learn-dt-${idCount}`;
 ---
 
 <div class="container" lang="en" dir="ltr" data-algolia-exclude>
 	<aside aria-labelledby={headingId}>
-		<Image src={CodingInPublic} alt="" width="130" />
-		<h2 id={headingId}>Learn Astro with <strong>Coding in Public</strong></h2>
+		<Image src={John} alt="" width="130" />
+		<h2 id={headingId}>Learn about <strong>Digital Transformation</strong></h2>
 		<p class="sl-flex">
 			<span class="sl-flex" style="gap: 0.25rem; align-items: center;">
 				<svg fill="currentColor" viewBox="0 0 18 18" aria-hidden="true">
@@ -21,12 +21,12 @@ const headingId = `learn-astro-course-${idCount}`;
 						d="M12 7.7 8.25 5.53A1.5 1.5 0 0 0 6 6.83v4.34a1.5 1.5 0 0 0 2.25 1.3L12 10.3a1.5 1.5 0 0 0 0-2.6ZM11.25 9 7.5 11.17V6.83L11.25 9ZM9 1.5a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15ZM9 15A6 6 0 1 1 9 3a6 6 0 0 1 0 12Z"
 					></path>
 				</svg>
-				<span>150+ video lessons</span>
+				<span>C2C Workshop</span>
 			</span>
-			<span>•</span>
-			<span>Astro v5 ready</span>
+			<!-- <span>•</span>
+			<span>Astro v5 ready</span> -->
 		</p>
-		<LinkButton href={offerUrl} class="cta" data-learn-astro-cta>Get 20% off</LinkButton>
+		<LinkButton href={offerUrl} class="cta" data-learn-astro-cta>Enroll Now</LinkButton>
 	</aside>
 </div>
 

@@ -1,0 +1,73 @@
+---
+type: tutorial
+title: Test your knowledge - Storage
+description: |-
+  Tutorial: Build your first Astro blog —
+  Create a global stylesheet for site-wide styling
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. Which service of AWS helps in hosting static website?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      S3
+    </Option>
+    <Option>
+      SQS
+    </Option>
+    <Option>
+      SNS
+    </Option>
+  </MultipleChoice>
+
+2. You want to update the home page of your existing website. What steps do you take?
+
+  <MultipleChoice>
+    <Option>
+      I open a terminal, run `create astro`, and then visit my Netlify URL.
+    </Option>
+    <Option>
+      I change a setting in my Netlify app, then start a new Astro project on astro.new.
+    </Option>
+    <Option isCorrect>
+      I make an edit to `index.astro`. I commit and push my changes to GitHub. Netlify will handle the rest!
+    </Option>
+  </MultipleChoice>
+
+2. You want to update the home page of your existing website. What steps do you take?
+
+  <MultipleChoice>
+    <Option>
+      I open a terminal, run `create astro`, and then visit my Netlify URL.
+    </Option>
+    <Option>
+      I change a setting in my Netlify app, then start a new Astro project on astro.new.
+    </Option>
+    <Option isCorrect>
+      I make an edit to `index.astro`. I commit and push my changes to GitHub. Netlify will handle the rest!
+    </Option>
+  </MultipleChoice>
+ </Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with storage concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables)

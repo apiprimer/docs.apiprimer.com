@@ -2,12 +2,12 @@
 import logo from '~/assets/astro-logo.svg?raw';
 import docs from '~/assets/docs.svg?raw';
 
-const main = 'https://astro.build/';
-const self = '/' + (Astro.locals.starlightRoute.locale || 'en') + '/getting-started/';
+const main = 'https://apiprimer.com/';
+const self = '/' + (Astro.locals.starlightRoute.locale || 'en') + '/home/';
 ---
 
 <span class="site-title sl-flex">
-	<a class="astro-logo" href={main} set:html={logo} aria-label="Astro" />
+	<a class="astro-logo" href={main} set:html={logo} aria-label="Astro" >
 	<a class="docs-logo" href={self} set:html={docs} aria-label="Docs" />
 </span>
 

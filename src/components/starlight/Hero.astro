@@ -13,15 +13,15 @@ const { title, tagline, actions, facepile } = hero!;
 			<h1 set:html={title} />
 			<p set:html={tagline} />
 		</div>
-		<div class="sl-flex actions">
+		<!-- <div class="sl-flex actions">
 			{
 				actions.map(({ link, icon, text, variant }) => (
 					<Button {link} {variant} {icon} set:html={text} />
 				))
 			}
-		</div>
+		</div> -->
 	</div>
-	<FacePile {...facepile} />
+	<!-- <FacePile {...facepile} /> -->
 </div>
 
 <style>

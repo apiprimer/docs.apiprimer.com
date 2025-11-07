@@ -1,27 +1,26 @@
 ---
 import { LinkButton } from '@astrojs/starlight/components';
-import JamesQuick from './JamesQuick.webp';
-import Scrimba from './Scrimba.webp';
+import John from './John.jpeg';
 import { Image } from 'astro:assets';
 
-const offerUrl = 'https://scrimba.com/intro-to-astro-c00ar0fi5u?via=astro';
+const offerUrl = 'https://apiprimer.com/contact/';
 
 const idCount = (((Astro.locals as any)._ad_render_id as number | undefined) ??= 1);
 (Astro.locals as any)._ad_render_id++;
-const headingId = `learn-astro-course-${idCount}`;
+const headingId = `learn-kong-${idCount}`;
 ---
 
 <div class="container" lang="en" dir="ltr" data-algolia-exclude>
 	<aside aria-labelledby={headingId}>
 		<div class="graphics">
-			<Image class="scrimba-bubble" src={Scrimba} alt="Scrimba" width="72" />
-			<Image src={JamesQuick} alt="" width="72" />
+			<!-- <Image class="scrimba-bubble" src={Scrimba} alt="Scrimba" width="72" /> -->
+			<Image src={John} alt="" width="72" />
 		</div>
 		<h2 id={headingId}>
-			<strong>Learn Astro</strong> with James Q Quick
+			<strong>Learn API Management</strong> with John
 		</h2>
-		<p>Build your first site with 35 interactive Scrimba lessons</p>
-		<LinkButton href={offerUrl} class="cta" data-scrimba-cta>Get 20% off</LinkButton>
+		<p>Learn and deploy your API Gateway with Kong</p>
+		<LinkButton href={offerUrl} class="cta" data-scrimba-cta>Enroll now</LinkButton>
 	</aside>
 </div>
 

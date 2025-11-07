@@ -1,0 +1,50 @@
+---
+type: tutorial
+title: Security Groups and NACLs
+description: |-
+  Tutorial: Build in cloud: Networking —
+  Add new pages to your site with navigation links between them
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Spoiler from '~/components/Spoiler.astro';
+import Box from '~/components/tutorial/Box.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+import { Steps } from '@astrojs/starlight/components';
+
+## Viewing Security Groups
+
+1. Open the Amazon VPC console ([https://console.aws.amazon.com/vpc/]).
+2. In the navigation pane, choose Security Groups.
+3. The security groups for your account will be displayed in a list.
+4. Click on the name of a security group to view its details.
+
+![sgroups](~/assets/labs/sgroups.jpg)
+
+## Viewing Network Access Control Lists (NACLs)
+
+1. Open the Amazon VPC console ([https://console.aws.amazon.com/vpc/]).
+2. In the navigation pane, choose VPCs.
+3. Select the VPC `myvpc` for which you want to view NACLs.
+4. Choose Subnets.
+5. Select the subnet `mypublicsubnet` for which you want to view NACLs.
+6. Choose the Network ACLs tab.
+7. The NACLs that are associated with the selected subnet will be displayed in a list.
+8. Click on the name of an NACL to view its details.
+
+![nacl](~/assets/labs/nacl.jpg)
+
+<Box icon="check-list">
+<Checklist>
+- [ ] I can aview Security Groups in my AWS account.
+- [ ] I can view Network Access Control Lists (NACLs) in my AWS account
+</Checklist>
+</Box>
+
+{/* ### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables)
+ */}

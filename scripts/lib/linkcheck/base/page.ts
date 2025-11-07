@@ -9,13 +9,13 @@ export class HtmlPage {
 	/**
 	 * The full page URL.
 	 *
-	 * Example: `https://docs.astro.build/en/getting-started/`
+	 * Example: `https://docs.astro.build/en/home/`
 	 */
 	readonly href: string;
 	/**
 	 * The `pathname` part of the page's URL.
 	 *
-	 * Example: `/en/getting-started/`
+	 * Example: `/en/home/`
 	 */
 	readonly pathname: string;
 
