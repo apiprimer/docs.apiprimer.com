@@ -1,0 +1,106 @@
+---
+type: tutorial
+title: Traditional SDLC
+description: Tutorial Build in cloud - Intro
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+You will see below how traditionally the software development lifecycle (SDLC) works and how cloud changes the way we build, deploy and manage applications.
+
+## Clone a respository
+
+- You can use this [template](https://github.com/apiprimer/spring-rest-api) to create your own project repository. Click `Use this template` and `Create a new repository`. Provide a name for your repository `spring-rest-api`. You will have a copy of this code in your own github account
+
+![git-template](~/assets/labs/git-template.jpg)
+
+- Copy the URL next on dropdown `Code`. Login to your AWS Account and Click Shell icon on top right. Goto AWS Cloud Shell and issue this command in shell
+
+```shell
+git clone $COPIED_URL
+```
+
+- You have the copy of your code in your local shell. Check with command,
+
+```shell
+ls spring-rest-api
+```
+Output
+
+```text
+[cloudshell-user@ip-10-132-56-180]$ ls spring-rest-api
+commands.sh  Dockerfile  mvnw  mvnw.cmd  pom.xml  src  target
+```
+
+## Installing JDK17 and Maven
+
+Since this is a demo of how to run Java project, you need to install the following tools in Cloud Shell, 
+
+```shell
+sudo yum install java-17-amazon-corretto-devel
+```
+```shell
+java -version
+```
+Output
+```text
+[cloudshell-user@ip-10-132-56-180 spring-rest-api]$ java -version
+openjdk version "17.0.9" 2023-10-17 LTS
+OpenJDK Runtime Environment Corretto-17.0.9.8.1 (build 17.0.9+8-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.9.8.1 (build 17.0.9+8-LTS, mixed mode, sharing)
+```
+
+```shell
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+```
+```shell
+tar xzvf apache-maven-3.9.6-bin.tar.gz
+```
+```shell
+sudo ln -s ~/apache-maven-3.9.6/bin/mvn /usr/local/bin/mvn
+```
+```shell
+mvn -v
+```
+Output
+```text
+[cloudshell-user@ip-10-132-56-180 spring-rest-api]$ mvn -v
+Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+Maven home: /home/cloudshell-user/apache-maven-3.9.6
+Java version: 17.0.9, vendor: Amazon.com Inc., runtime: /usr/lib/jvm/java-17-amazon-corretto.x86_64
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "6.1.66-91.160.amzn2023.x86_64", arch: "amd64", family: "unix"
+```
+
+## Compile and run
+
+Inorder to compile this program and create an executable jar. Issue the below command,
+
+```shell
+mvn clean install
+```
+
+To test the application run the following command,
+
+```shell
+java -jar target/dynamo-1.0.0.jar
+```
+
+```
+curl http://localhost:8080/hello
+```
+
+You should see the output as below
+
+```text
+Hello World
+```
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am able to run the java and maven commands in Cloud Shell
+- [ ] Lets proceed to building in cloud
+</Checklist>
+</Box>

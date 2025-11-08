@@ -1,0 +1,58 @@
+---
+title: Cloud Infrastructure
+description: "Astro is the web framework for building content-driven websites like blogs, marketing, and e-commerce. Learn why Astro might be a good choice for your next website."
+i18nReady: true
+---
+
+The major components of cloud infrastructure are:
+
+- **Security**: Security is a critical aspect of cloud computing that involves protecting cloud-based systems, applications, and data from unauthorized access, modification, or destruction.
+- **Networking**: Networking resources provide the connectivity needed to communicate between applications and services in the cloud. Networking resources can be provisioned in a variety of forms, such as virtual private clouds (VPCs), load balancers, and firewalls.
+- **Compute**: Compute resources provide the processing power needed to run applications and services in the cloud. Compute resources can be provisioned in a variety of forms, such as virtual machines, containers, and serverless computing.
+- **Storage**: Storage resources provide the space to store data in the cloud. Storage resources can be provisioned in a variety of forms, such as block storage, object storage, and file storage.
+- **Databases**: Database resources provide the ability to store and manage structured data in the cloud. Database resources can be provisioned in a variety of forms, such as relational databases, NoSQL databases, and in-memory databases.
+- **Management services**: Management services provide the tools and capabilities needed to manage and monitor cloud infrastructure. Management services can be used to provision and deprovision resources, monitor resource utilization, and troubleshoot problems.
+
+## Cloud Redundancy
+
+Cloud redundancy refers to the duplication of certain components or functions of a cloud system with the intention of increasing its reliability and availability. It's a common strategy used to prevent data loss and downtime in the event of a failure. Redundancy can be implemented at various levels, including hardware, software, and data.
+
+### How does cloud redundancy work?
+
+Cloud redundancy works by creating duplicates of critical components or functions of the system. If a component fails, the redundant component takes over to ensure the system continues to operate smoothly. For instance, cloud storage systems often replicate data across multiple servers, so if one server fails, the data is still accessible from the other servers.
+
+### Types of cloud redundancy
+
+There are several types of cloud redundancy, each addressing specific aspects of cloud infrastructure and operations:
+
+**Hardware redundancy**: This involves replicating physical components like servers, storage devices, and network equipment. If one component fails, the redundant component can take over without interrupting service.
+
+**Software redundancy**: This involves running redundant instances of software applications and services. If one instance fails, the other instances can continue to handle requests and maintain availability.
+
+**Data redundancy**: This involves replicating data across multiple storage locations, whether within a single data center or across different regions. This ensures that data remains accessible even if one storage location experiences a failure.
+
+## AWS Infrastructure
+
+The AWS Global Infrastructure is designed to be highly reliable and scalable. It consists of multiple layers of redundancy, including multiple Availability Zones (AZs) in each region, multiple regions around the world, and multiple edge networks. This redundancy helps to ensure that AWS services are available even in the case of hardware failures, natural disasters, or other disruptions.
+
+### Regions
+
+An AWS Region is a geographic area where AWS resources are located. Each region has multiple AZs, which are isolated fault domains. This means that an outage in one AZ will not affect the availability of resources in other AZs.
+
+Regions are also designed to be close to major population centers and business hubs. This helps to reduce latency and improve performance for customers in those areas.
+
+### Availability Zones (AZs)
+
+An Availability Zone (AZ) is a physically distinct data center within an AWS Region. Each AZ has its own independent power and network infrastructure. This isolation helps to protect against physical failures, such as power outages or earthquakes.
+
+AZs are also designed to be close together, with low latency and high bandwidth connections between them. This makes it easy to replicate data and applications across multiple AZs for high availability.
+
+### How do regions and AZs work together
+
+AWS services are deployed across multiple AZs within a region. This helps to ensure that the services are highly available and scalable. If there is an outage in one AZ, the other AZs will continue to operate.
+
+You can choose to deploy resources across multiple regions for even greater availability and disaster recovery. This allows you to recover quickly from outages or disasters in one region by failing over to resources in another region.
+
+:::note
+As of Nov 2023, AWS Cloud spans 102 Availability Zones within 32 geographic regions around the world, with announced plans for 15 more Availability Zones and 5 more AWS Regions in Canada, Germany, Malaysia, New Zealand, and Thailand.
+:::

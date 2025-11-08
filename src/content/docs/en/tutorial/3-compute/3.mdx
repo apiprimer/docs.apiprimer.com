@@ -1,0 +1,58 @@
+---
+type: tutorial
+title: Deploy a lambda function
+description: Tutorial Build in cloud - Compute
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Creating a Lambda Function
+
+1. Open the AWS Management Console and sign in to your AWS account.
+2. Navigate to the Lambda service by clicking on the "Services" tab and selecting "Lambda".
+3. In the Lambda console, click on the "Create function" button.
+4. Select "Author from scratch".
+5. In the "Basic information" pane, for "Function name" enter `myLambdaFunction`.
+6. For "Runtime" choose "Node.js 20.x".
+7. For "Execution role" choose "New from scratch".
+8. In the "Permissions" pane, select the "AWS Lambda basic execution role" policy and click on "Choose".
+9. Click on "Create function".
+10. In the "Function code" pane, paste the following code:
+
+```JavaScript
+exports.handler = async (event) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify('Hello, World!')
+  };
+};
+```
+11. Click on "Save".
+12. In the "Tester" pane, click on "Test".
+13. The results of the test will be displayed in the "Execution result" pane.
+
+## Publish Lambda
+
+1. Once tested and validated, you need to obtain an url to trigger this from anywhere
+2. Goto "Configuration" tab and select "Function URL"
+3. Click "Create Function URL"
+
+![lambda-url](~/assets/labs/lambda-url.jpg)
+
+4. Select NONE to allow anyone with the link to access this function
+5. Click on the function URL and you will see the output of the function in browser `Hello, World!`
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can create and deploy a Lambda function in my AWS account.
+- [ ] I can access the Lambda function using the Function URL.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

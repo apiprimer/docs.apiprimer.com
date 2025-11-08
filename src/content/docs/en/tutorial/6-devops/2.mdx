@@ -1,0 +1,88 @@
+---
+type: tutorial
+title: Deploy a static website to S3
+description: Tutorial Build in cloud - DevOps
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## CD Pipeline
+
+Continuous Deployment is the process of sending the changes you made to your users immediately so that it can bring value to your business. For simplicity of deployment, you are going to build and deploy your website to S3 bucket. 
+
+![website-pipeline](~/assets/labs/website-pipeline.png)
+
+Previously you have uploaded the static website manually using aws cli commands. Let's see how those steps can be automated so that it all happens when pushing a code to repository. 
+
+1. Open the GitHub repository and goto your repo which contains the static react website. 
+2. Goto `Settings` tab and `Security` section where you can see `Secrets and Variables` and click on Actions. 
+3. Based on the pipeline depicted above, the only integration you have is to use **S3 Bucket** where you maintain the html/javascript code. 
+4. You create two variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_S3_BUCKET_NAME` as secrets so that you dont have to hardcode these secrets in your sourcecode. 
+5. In order to get the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` you login to your [AWS Account](https://console.aws.com). Goto `IAM` -> `Security` and then create `New Access Token` with permissions `Read & Write`. This will give programmatic access to read and write to your S3 bucket in AWS. 
+6. Copy the token and create the GitHub Secret `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` with the values you copied from AWS.
+7. For `AWS_S3_BUCKET_NAME`, use your fully qualified S3 bucket name. 
+8. Once the secrets are created, GitHub Actions now has the permission to write files to your bucket. You will use these values in your workflow. 
+9. Either from your local laptop or any terminal create the following directory structure and files and copy paste the code given below to your `node.js.yml`
+
+```
+.github
+└── workflows
+    └── node.js.yml
+```
+
+```yml
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+    - name: Deploy static site to S3 bucket
+      run: aws s3 sync ./build/ ${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+```
+10. Now you commit your changes `git add . && git commit -m "added github actions"` and push `git push` this to your repository. Once the change is pushed goto your `Actions` tab on the repository and see the magic happening. 
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can create a GitHub Actions workflow to deploy a static website to S3.
+- [ ] I am able to see the changes reflected on my static website after pushing code to GitHub.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

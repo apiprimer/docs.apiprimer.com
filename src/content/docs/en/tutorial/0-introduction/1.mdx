@@ -1,0 +1,43 @@
+---
+type: tutorial
+title: Create your cloud account
+description: Tutorial Build in cloud - Intro
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import Lede from '~/components/tutorial/Lede.astro';
+
+<Lede> You can provision free accounts on any major cloud providers like AWS, GCP, Azure. For the purpose of this tutorial, you will be using AWS. 🚀 </Lede>
+
+To create an AWS account under the Free Tier, follow these steps:
+
+1. Go to the [AWS Free Tier](https://aws.amazon.com/free/) and click Create a Free Account.
+2. Enter your account information and click Continue.
+3. Verify your email address and phone number.
+4. Create a password for your root user and click Continue.
+5. Review the AWS Customer Agreement and click Accept and Create Account.
+
+You will receive an email notification once your account is created.
+
+Once your account is created, you can start using the AWS Free Tier services. The Free Tier includes a number of popular services, such as Amazon Elastic Compute Cloud (Amazon EC2), Amazon Simple Storage Service (Amazon S3), and Amazon Relational Database Service (Amazon RDS).
+
+:::tip[Free Tier Details]
+The AWS cloud account is free for 12 months and with limitations on how much you can use for each different resources. In order to avoid exceeding the free tier limits, make sure you limit your explorations to limited set of services. You can apply IAM policies to users to make some restrictions and enable services when needed
+:::
+
+## Securing the account
+
+Once you login make sure to secure the account with MFA (Multi Factor Authentication) this can reduce the risk of account breach, leading to abuse of your cloud account. 
+
+1. Goto IAM console of the cloud account and follow all the Security recommendations given in the page. 
+2. The account you logged in is the root user for your account which has full privilege on your account. Do not use that account for the exploration purpose but use it only for administrative purpose like billing, user management. 
+3. Create a user in the upcoming section and assign only necessary permissions to the user. Use that user for login to account and other activities given in this hands-on tutorial.
+
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have the AWS account created and secured with MFA.
+</Checklist>
+</Box>

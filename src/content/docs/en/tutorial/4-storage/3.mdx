@@ -1,0 +1,85 @@
+---
+type: tutorial
+title: Test your knowledge - Storage
+description: Tutorial Build in cloud - Storage
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. Which service of AWS helps in hosting static website?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      S3
+    </Option>
+    <Option>
+      SQS
+    </Option>
+    <Option>
+      SNS
+    </Option>
+  </MultipleChoice>
+
+2. By default, when you create a new S3 bucket, who can access the objects inside it?
+
+  <MultipleChoice>
+    <Option>
+      Everyone on the internet
+    </Option>
+    <Option>
+      Only people in your VPC
+    </Option>
+    <Option isCorrect>
+      Only the bucket owner (nobody else)
+    </Option>
+  </MultipleChoice>
+
+3. You uploaded a 100 MB photo to S3. How many objects are now in your bucket?
+
+  <MultipleChoice>
+    <Option>
+      10
+    </Option>
+    <Option isCorrect>
+      1
+    </Option>
+    <Option>
+      100
+    </Option>
+  </MultipleChoice>
+
+4. Which of the following is a valid S3 bucket name?
+
+  <MultipleChoice>
+    <Option>
+      MyBucket!2025
+    </Option>
+    <Option isCorrect>
+      my-bucket-name
+    </Option>
+    <Option>
+      My Bucket
+    </Option>
+  </MultipleChoice>
+ </Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with storage concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+{/* ### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables) */}

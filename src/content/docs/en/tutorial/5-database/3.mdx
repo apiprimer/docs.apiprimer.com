@@ -1,0 +1,71 @@
+---
+type: tutorial
+title: Test your knowledge
+description: Tutorial Build in cloud - Database
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. Which DB is Key Value pair Database provided and managed by Amazon?
+
+  <MultipleChoice>
+    <Option>
+      MariaDB
+    </Option>
+    <Option>
+      SQL
+    </Option>
+    <Option isCorrect>
+      DynamoDB
+    </Option>
+  </MultipleChoice>
+
+2. Which DB in AWS is used for Graph QL implementations?
+
+  <MultipleChoice>
+    <Option>
+      Cassandra
+    </Option>
+    <Option isCorrect>
+      Neptune
+    </Option>
+    <Option>
+      PostgreSQL
+    </Option>
+  </MultipleChoice>
+
+3. What is the only characteristic of NoSQL Databases from the given choices?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      Schemaless
+    </Option>
+    <Option>
+      Stored as Rows and Columns
+    </Option>
+    <Option>
+      Data cannot be flexible
+    </Option>
+  </MultipleChoice>
+ </Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with database concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+{/* ### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables) */}

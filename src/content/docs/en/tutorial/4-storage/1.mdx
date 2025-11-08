@@ -1,0 +1,59 @@
+---
+type: tutorial
+title: Create your S3 bucket
+description: Tutorial Build in cloud - Storage
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Creating a S3 bucket
+
+1. Open the AWS Management Console and sign in to your AWS account.
+2. Navigate to the S3 service by clicking on the Services tab and selecting S3.
+3. In the S3 console, click on the Create bucket button.
+4. In the Create bucket window, do the following:
+    - For Region, choose the region where you want to create your bucket. S3 buckets are regional, and your data will be stored in the chosen region. `ap-south-1`
+    - For Bucket name, enter a unique name for your bucket. S3 bucket names must be globally unique. `UNIQUEPREFIX-mybucket`
+5. Leave rest of settings to defaults
+6. Scroll to botton and click on Create bucket.
+
+## Upload files to S3 from EC2
+
+1. You will reuse the role created previously to get access to s3 bucket.
+2. Create a new instance or if you have a instance running you can use that
+3. Select the running instance and goto "Actions" -> "Security" -> "Modify IAM Role"
+
+![s3-role-attach](~/assets/labs/s3-instance.jpg)
+
+4. In the window select the role created previously `myrole-s3` and click "Update IAM Role"
+
+5. Once its attached, you can login to instance using SSH and issue below commands,
+
+```
+[ec2-user@ip-10-0-0-147 ~]$ aws s3 ls
+2023-12-01 13:22:23 jwconsult-mybucket
+[ec2-user@ip-10-0-0-147 ~]$ vi sample.txt
+[ec2-user@ip-10-0-0-147 ~]$ aws s3 cp sample.txt s3://jwconsult-mybucket/
+upload: ./sample.txt to s3://jwconsult-mybucket/sample.txt
+```
+
+6. You can validate this by going to S3 bucket in AWS console and see the object is uploaded 
+
+:::tip[Note]
+What you have done now is without using any hardcoded credentials you were able to access S3 bucket from EC2 instance. This is the most secure way to establish access between AWS services and underlying token generation is handled by AWS internally
+:::
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can create and configure an S3 bucket in my AWS account.
+- [ ] I can upload and retrieve objects from the S3 bucket.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

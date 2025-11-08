@@ -1,0 +1,62 @@
+---
+type: tutorial
+title: Deploy a webserver
+description: Tutorial Build in cloud - Compute
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Install Apache webserver
+
+1. To install apache server, run the command `sudo dnf install -y httpd`
+2. Start the server using command `sudo systemctl start httpd`
+3. This server is now listening on port `80`
+4. You can perform a curl within the SSH terminal `curl http://localhost:80` and will see the below result
+
+```
+<html><body><h1>It works!</h1></body></html>
+```
+
+## Testing the Firewall
+
+1. You can try to access the Public IP address in the browser `http://PUBLIC_IP`
+2. You wont be able to see the `It Works` response in the browser, rather a timeout. Any guess why ???
+3. This is because of your Security Group rule where you added only access to SSH port `22`
+4. Now to add more rules, open the Security Group that was created earlier `ssh-access`
+5. Click on "Edit Inbound Rules" and "Add Rule"
+
+![sg-newport](~/assets/labs/sg-port80.jpg)
+
+6. Add an entry with Type as "HTTP" and with Source as "Anywhere IPv4" and then click "Save Rules"
+7. This rule will be propogated immediately and you would now be able to access the URL in the browser `http://PUBLIC_IP` and should see `It Works`
+
+## Terminate instance
+
+Once you test your changes and get to explore on the instances and you no longer need this instance, you can either Stop or Terminate the instance. 
+
+Select the instance and goto Instance State and you will have options,
+
+- Stop Instance : Current state of the VM is maintained and can be reused later if required. Stopped instance can be started again and resumed work. 
+
+- Terminate Instance: State and disk contents are deleted and you cannot recover this instance. This should be done only if you deem instance is not needed anymore. 
+
+```sh
+aws ec2 stop-instances --instance-ids i-0315ccea2876d85c4
+
+aws ec2 terminate-instances --instance-ids i-06ef6d8d73a0bac41
+```
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can deploy a webserver on my EC2 instance.
+- [ ] I can access the webserver from my browser by updating security group rules.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

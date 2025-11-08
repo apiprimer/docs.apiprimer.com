@@ -1,0 +1,45 @@
+---
+type: tutorial
+title: Create Groups
+description: Tutorial Build in cloud - Security
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Creating a Group
+
+1. Navigate to the IAM service in the AWS Management Console.
+2. In the IAM console, choose "Groups" from the left-hand navigation pane.
+3. Click on the "Create group" button.
+4. In the "New group" window, enter a unique name for the group.
+5. (Optional) Add a description for the group to provide context.
+6. Click on "Next: Permissions".Select the appropriate IAM policies or attach existing policies to assign permissions to the group.
+7. Click on "Next: Review".
+8. Review the group details, including permissions and tags.
+9. Click on "Create group".
+
+The newly created group will appear in the list of groups.
+
+## Adding Users to a Group
+
+1. Navigate to the IAM service in the AWS Management Console.
+2. In the IAM console, choose "Users" from the left-hand navigation pane.
+3. Select the user you want to add to a group.
+4. Click on the "Add to group" button.
+5. In the "Add users to group" window, select the group you want to add the user to.
+6. Click on "Add users".
+
+The user will now be a member of the selected group.
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have created a new group with users.
+</Checklist>
+</Box>
+
+{/*
+### Resources
+
+- <p>[FreeCodeCamp.org](https://freecodecamp.org) <Badge class="neutral-badge" text="external" /> — a free educational site with full courses or quick refreshers in HTML, CSS, JS, and more.</p> */}

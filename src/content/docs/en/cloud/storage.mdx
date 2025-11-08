@@ -1,0 +1,70 @@
+---
+title: Storage
+description: "Astro is the web framework for building content-driven websites like blogs, marketing, and e-commerce. Learn why Astro might be a good choice for your next website."
+i18nReady: true
+---
+
+Cloud storage refers to the storage of data on servers located in the cloud, rather than on physical storage devices located on-premises. This enables users to access their data from anywhere with an internet connection. 
+
+## Storage Services in AWS
+
+- **Amazon Simple Storage Service (S3)**: S3 is a highly scalable, object storage service that is designed for storing large amounts of unstructured data.
+- **Amazon Elastic Block Store (EBS)**: EBS is a block storage service that provides high-performance, block-level storage for Amazon EC2 instances.
+- **Amazon Glacier**: Glacier is a low-cost, archival storage service that is designed for storing infrequently accessed data.
+- **Amazon FSx for Windows File Server**: FSx for Windows File Server provides a fully managed, scalable, and highly available file system that is compatible with Windows Server.
+- **Amazon S3 Glacier Deep Archive**: Glacier Deep Archive is an ultra-low-cost storage service that is designed for storing data that is accessed less frequently than once per year.
+
+## S3
+
+Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. It is designed to store and protect any amount of data for a wide range of use cases, including websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.
+
+S3 provides a simple web service interface that you can use to store and retrieve data, and it can be accessed from anywhere in the world. S3 is a highly durable and available service, and it offers a variety of storage options to meet your needs.
+
+### Storage Classes in S3
+
+S3 offers a range of storage classes to meet different storage needs and cost requirements. These storage classes are:
+
+1. **S3 Standard**: This is the most widely used storage class and is designed for frequently accessed data.
+2. **S3 Standard-IA (Infrequent Access)**: This storage class is designed for data that is accessed less frequently than Standard data.
+3. **S3 One Zone-IA (Infrequent Access)**: This storage class is designed for data that is accessed less frequently than Standard-IA data and that must reside in a specific AWS Region.
+4. **S3 Glacier**: This storage class is designed for archiving data that is rarely accessed and that must be stored at a lower cost.
+5. **S3 Intelligent-Tiering**: This storage class automatically tiers data between the Standard, Standard-IA, and Glacier storage classes based on how frequently it is accessed.
+ 
+### Use Cases for S3
+
+- **Websites and web applications**: S3 can be used to store the static content of websites and web applications, such as images, CSS, and JavaScript files.
+- **Mobile applications**: S3 can be used to store the data and media files for mobile applications.
+- **Backup and restore**: S3 can be used to back up data from on-premises servers and virtual machines. It can also be used to restore data from backups.
+- **Archive**: S3 can be used to archive inactive data that is rarely accessed.
+- **Enterprise applications**: S3 can be used to store data for enterprise applications, such as CRM and ERP systems.
+- **IoT devices**: S3 can be used to store data from IoT devices.
+- **Big data analytics**: S3 can be used to store data for big data analytics.
+
+## EBS and EFS
+
+- **EBS** is a block storage service that provides persistent, high-performance block storage for EC2 instances. It is designed for applications that require low latency and high throughput, such as databases, web servers, and applications that require direct access to block storage.
+
+- **EFS** is a shared file storage service that provides scalable, elastic file storage for use with AWS Cloud and on-premises deployments. It is designed for applications that require a shared file system that is easy to use, scalable, and highly available.
+
+### Differences between EBS and EFS
+
+| Feature | EBS | EFS |
+| ------- | --- | --- |
+| Storage type | Block storage | File storage |
+| Use cases | Databases, web servers, applications that require direct access to block storage | Applications that require a shared file system |
+| Scalability | Fixed size | Elastic |
+| Availability | Highly available | Highly available |
+| Performance | Low latency, high throughput | Scalable performance |
+| Cost | Based on provisioned storage | Based on usage |
+
+In addition to the key differences listed above, here are some other notable differences between EBS and EFS:
+
+- EBS volumes can be attached to a single EC2 instance, while EFS file systems can be mounted by multiple EC2 instances.
+- EBS volumes can be used as boot disks, while EFS file systems cannot.
+- EBS volumes can be backed up to Amazon S3, while EFS file systems are automatically backed up by AWS.
+
+### Choosing between EBS and EFS
+
+- If your application requires low latency and high throughput, then EBS is the best choice. 
+
+- If your application requires a shared file system that is easy to use, scalable, and highly available, then EFS is the best choice.

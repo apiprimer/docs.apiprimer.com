@@ -1,0 +1,121 @@
+---
+type: tutorial
+title: Deploy a static website
+description: Tutorial Build in cloud - Storage
+i18nReady: true
+---
+import Box from '~/components/tutorial/Box.astro';
+import Checklist from '~/components/Checklist.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+import { Steps } from '@astrojs/starlight/components';
+import Badge from "~/components/Badge.astro"
+
+## Installing NodeJS
+
+1. Login to the instance running on EC2
+2. Run the following commands to install node latest version
+
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install --lts
+node -v
+```
+
+## Creating your website
+
+1. You can start with creating your website either from scratch using any web framework like [Angular](https://angular.io/guide/setup-local), [React](https://react.dev/learn/start-a-new-react-project). 
+2. For this example you will be using [react-static-app](https://github.com/apiprimer/react-static-app) which is a popular framework for React. Clone the git repo you created in your shell. 
+
+```shell
+git clone $COPIED_URL
+```
+3. To run this project in local, 
+
+```shell
+npm install
+npm run start
+```
+
+4. This will provide a localhost url with port number which you can see preview and modify code for live reloads.
+5. Once the changes are done and tested in local. We need to build this project so that it runs on browser. `build` will create JS files and minify the run time size of the code. This process will create the code which is required for your runtime in a build folder. 
+
+```shell
+npm run build
+```
+
+## Create a S3 Bucket
+
+1. Navigate to the S3 service in the AWS Management Console.
+2. Click on the "Create bucket" button.
+3. Provide a unique name for your bucket. Choose the region where you want to store your website data. `UNIQUEPREFIX-static-site`
+4. Click on "Create bucket" to finalize the bucket creation.
+5. Select your newly created bucket from the list.
+6. Click on the "Properties" tab.
+7. Under "Static website hosting" towards the end, choose Enabled under "Use this bucket to host a website". On the "Index Document" type `index.html` and for "Error Document" type `404.html`
+8. Click on "Save changes" to enable website hosting for your bucket.
+9. Click on the "Permissions" tab and enable public access by clicking "Edit" under "Block Public Access" and unchecking "Block all public access" and on pop-up confirm.
+10. Click on "Bucket Policy" and choose "Edit policy."
+11. Paste the following policy into the editor:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::UNIQUEPREFIX-static-site/*"
+            ]
+        }
+    ]
+}
+```
+12. Click on "Save changes" to apply the policy.
+
+## Upload Website Files
+
+1. Open the S3 console and select your bucket.
+2. In the "Actions" menu, select "Upload files"
+3. Drag and drop your website files or select them from your local computer. You need to copy all the files under `build`
+
+![s3-upload](~/assets/labs/s3-upload.jpg)
+
+4. Click on "Upload" to transfer the files to your S3 bucket.
+5. If you are using EC2 instance, then give the following command to copy all files from out directory to S3 bucket
+
+```shell
+aws s3 sync ./build/ s3://UNIQUEPREFIX-static-site --delete
+```
+
+## Access Website
+
+You can access your website using your bucket's static website hosting URL, which can be found in the "Static website hosting" section under your bucket's properties. `http://UNIQUEPREFIX-static-site.s3-website.ap-south-1.amazonaws.com`
+
+**Voila! You just published a website for the whole world to see :)**
+
+:::tip[Power of Cloud]
+You just witnessed the power of cloud computing and how easy it is to reach your users anywhere they are in just a few hours of time. Share this URL with your friends and see whether they are able to see your website
+:::
+
+<Box icon="check-list">
+<Checklist>
+- [ ] I can create a S3 bucket for hosting static website.
+- [ ] I can upload website files to S3 bucket.
+- [ ] I can access my static website using S3 bucket URL.
+</Checklist>
+
+</Box>
+
+{/* ### Resources
+
+- [Markdown Layouts in Astro](/en/guides/markdown-content/#frontmatter-layout-property)
+
+- [Markdown Layout Props](/en/basics/layouts/#markdown-layout-props)
+
+- [Introduction to YAML](https://dev.to/paulasantamaria/introduction-to-yaml-125f) <Badge class="neutral-badge" text="external" /> */}

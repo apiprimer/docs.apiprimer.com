@@ -1,0 +1,67 @@
+---
+type: tutorial
+title: Create Internet Gateway and Routing Table
+description: Tutorial Build in cloud - Network
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+To create an internet gateway, follow these steps:
+
+1. Open the Amazon VPC console.
+2. In the navigation pane, click Internet Gateways.
+3. Click `Create internet gateway`
+4. Provide a name to the gateway `my-igw`
+5. Once created this needs to be attached to VPC. Click on the `my-igw` and it will show you the details. 
+6. On right top corner Actions -> Attach to VPC
+
+![igw](~/assets/labs/igw.jpg)
+
+7. Select the VPC `myvpc` and click `Attach internet gateway`
+
+:::note
+Generally, you only need one internet gateway for each VPC. An internet gateway is a highly available and scalable component that allows you to route traffic between your VPC and the internet.
+:::
+
+## Viewing Routing Tables
+
+1. Open the Amazon VPC console (https://console.aws.amazon.com/vpc/).
+2. In the navigation pane, choose Route Tables.
+3. Select the VPC for which you want to view routing tables.
+4. The routing tables for the selected VPC will be displayed in a list.
+5. Click on the name of a routing table to view its details.
+
+![routing-table](~/assets/labs/routingtable.jpg)
+
+:::note
+This table shows a destination `172.31.0.0/16` and target local - meaning that any traffic goes to this IP range will be routed locally within the VPC.
+
+`0.0.0.0/0` meaning that any other IP outside that range will be routed to Internet Gateway from which the traffic will be passed out to the internet
+:::
+
+## Editing Routing Table
+
+1. Open the Amazon VPC console (https://console.aws.amazon.com/vpc/).
+2. In the navigation pane, choose Route Tables.
+3. Select the VPC `myvpc` for which you want to view routing tables.
+4. The routing tables for `myvpc` will be displayed in a list.
+5. Click on the name of a routing table to view its details.
+6. To make the subnet associated with this routing table to access the internet, you need to add a new route as below,
+
+![editroute](~/assets/labs/edit-routingtable.jpg)
+
+7. Click "Save Changes" and now the subnet is public subnet
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have created an Internet Gateway and attached to my VPC.
+- [ ] I have edited the Routing Table to make subnet public.
+</Checklist>
+</Box>
+
+{/* 
+### Resources
+
+- [Dynamic expressions in Astro](/en/reference/astro-syntax/#jsx-like-expressions) */}

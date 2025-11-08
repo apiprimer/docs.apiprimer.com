@@ -1,0 +1,124 @@
+---
+type: tutorial
+title: Create Policies
+description: Tutorial Build in cloud - Security
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+import { Steps } from '@astrojs/starlight/components';
+import Badge from "~/components/Badge.astro"
+
+## Creating a Policy
+
+1. Navigate to the IAM service in the AWS Management Console.
+2. In the IAM console, choose "Policies" from the left-hand navigation pane.
+3. Click on the "Create policy" button.
+4. In the "Create policy" window, choose the policy type as JSON
+5. Add the below policy to the content
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "compute-optimizer:GetEnrollmentStatus",
+                "iam:List*",
+                "iam:Get*",
+                "iam:AttachRolePolicy",
+                "iam:CreateRole",
+                "iam:CreatePolicy",
+                "iam:PutRolePolicy",
+                "iam:CreateAccessKey",
+                "iam:DeleteAccessKey",
+                "ec2-instance-connect:*",
+                "ec2:*",
+                "cloudshell:*",
+                "lambda:*",
+                "dynamodb:*",
+                "freetier:*",
+                "s3:*",
+                "cloudwatch:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::*:role/*"
+            ]
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ec2:RunInstances",
+                "ec2:StartInstances"
+            ],
+            "Resource": [
+                "arn:aws:ec2:ap-south-1:*:instance/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "ec2:InstanceType": "t2.micro"
+                }
+            }
+        },
+        {
+            "Effect": "Deny",
+            "NotAction": [
+                "iam:*",
+                "freetier:*",
+                "cloudwatch:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": "ap-south-1"
+                }
+            }
+        }
+    ]
+}
+```
+6. Provide a unique name for the policy. `my-policy`
+7. Click on "Review". Review the policy details, including the policy name and type, as well as the policy document or selected AWS-managed policy.
+8. Click on "Create policy".
+
+The newly created policy will appear in the list of policies. This policy can be used to create resources required for this tutorial. 
+
+## Assigning the policy to User
+
+1. Navigate to the IAM service in the AWS Management Console.
+2. In the IAM console, choose "Users" from the left-hand navigation pane.
+3. Select the user you have create `myuser`
+4. Click `Add Permission` and select the policy you have created before `my-policy`
+
+![policies](~/assets/labs/policies.jpg)
+
+5. This user is now restrcited to the policy you have created + Read Only role on all AWS services. 
+6. Goto IAM Dashboard page and identify the URL specific for your aws account. 
+
+![url](~/assets/labs/login-url.jpg)
+
+7. Open an incognito window in your browser and try logging in with your `myuser` account
+
+:::tip
+For the upcoming activities from Unit 3 and other exploration use this user `myuser` to login to the aws console.
+:::
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have applied the policy to the user.
+</Checklist>
+</Box>
+
+{/*
+### Resources
+
+- <p>[FreeCodeCamp.org](https://freecodecamp.org) <Badge class="neutral-badge" text="external" /> — a free educational site with full courses or quick refreshers in HTML, CSS, JS, and more.</p> */}

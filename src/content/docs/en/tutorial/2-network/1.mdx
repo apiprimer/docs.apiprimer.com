@@ -1,0 +1,50 @@
+---
+type: tutorial
+title: Create your VPC
+description: Tutorial Build in cloud - Network
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## View VPC
+
+By default every region in AWS will have a default VPC created so that you can start using them. This VPC will have default IP range of CIDR `172.31.0.0/16`
+
+To view an existing VPC on AWS, follow these steps:
+
+1. Go to the Amazon VPC console.
+2. In the navigation pane, click VPCs.
+3. Click the name of the VPC that you want to view.
+
+![vpc](~/assets/labs/vpc.jpg)
+
+:::tip
+CIDR of 172.31.0.0/16 supports a maximum of 65,534 address in the range of 172.31.0.1 - 172.31.255.254
+:::
+
+## Create VPC
+
+To create a VPC on AWS, follow these steps:
+
+1. Go to the Amazon VPC console and click Create VPC.
+2. Enter a name for your VPC in the VPC name field `myvpc`
+3. Select a CIDR block for your VPC in the IPv4 CIDR block field. A CIDR block is a range of IP addresses that you can assign to resources in your VPC. `10.0.0.0/16`
+4. Select a tenancy for your VPC in the Tenancy field. There are two types of tenancies: default and dedicated. Default tenancies are shared with other AWS customers. Dedicated tenancies are isolated from other AWS customers. `default`
+5. Click Create VPC.
+
+![createvpc](~/assets/labs/create-vpc.jpg)
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can view an existing VPC in my AWS account.
+- [ ] I have created a new VPC with a custom CIDR block.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}
