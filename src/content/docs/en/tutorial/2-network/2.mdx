@@ -1,0 +1,60 @@
+---
+type: tutorial
+title: Create your Subnet
+description: |-
+  Tutorial: Build in cloud: Networking —
+  Add new pages to your site with navigation links between them
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import Badge from "~/components/Badge.astro"
+
+## View a Subnet
+
+1. Open the Amazon VPC console.
+2. In the navigation pane, click VPCs.
+3. Select the VPC that you want to view subnets for.
+4. In the Subnets tab, you will see a list of all the subnets in the selected VPC.
+
+![subnet](~/assets/labs/subnet.jpg)
+
+:::note
+Subnet CIDR of 172.31.32.0/20 supports a maximum of 4,094 address in the range of172.31.32.1 - 172.31.47.254
+:::
+
+## Create a Subnet
+
+1. Open the Amazon VPC console.
+2. In the navigation pane, click VPCs.
+3. Select the VPC that you want to create a subnet in. `myvpc`
+4. Click Actions, and then click Create Subnet.
+5. In the Subnet Name field, enter a name for the subnet. `mypublicsubnet`
+6. In the VPC ID field, select the VPC that the subnet will be in. `myvpc`
+7. In the CIDR Block field, enter a CIDR block for the subnet. `10.0.0.0/24`
+8. In the Availability Zone field, select the availability zone where the subnet will be located. `ap-south-1a`
+9. Click Create Subnet.
+10. This is still not a public subnet, by default there is no Internet Gateway attached. You will add this in upcoming excercise. 
+11. When you create a subnet its associated "Routing Table" and "Network ACLs" are also created. You just need to edit them to your requirement. 
+
+![create-subnet](~/assets/labs/create-subnet.jpg)
+
+:::note
+Subnet maps to one Availability Zone and always associated with a VPC
+:::
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have created a Subnet in my VPC.
+- [ ] I can view the Subnet in my VPC.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [Markdown Cheat Sheet from The Markdown Guide](https://www.markdownguide.org/cheat-sheet/)  <Badge class="neutral-badge" text="external" />
+
+- [What are browser developer tools? MDN](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)  <Badge class="neutral-badge" text="external" />
+
+- [YAML frontmatter](https://assemble.io/docs/YAML-front-matter.html)  <Badge class="neutral-badge" text="external" /> */}

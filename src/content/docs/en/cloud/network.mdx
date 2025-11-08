@@ -1,0 +1,144 @@
+---
+title: Network
+description: "Astro is the web framework for building content-driven websites like blogs, marketing, and e-commerce. Learn why Astro might be a good choice for your next website."
+i18nReady: true
+---
+
+Cloud networking is the process of creating and managing networks in the cloud. Cloud networks are similar to traditional on-premises networks, but they offer a number of advantages, such as agility, scalability, and cost savings.
+
+One of the key benefits of cloud networking is that it allows businesses to quickly and easily deploy new networks. With cloud networking, there is no need to purchase and manage physical hardware, such as routers and switches. Instead, businesses can simply provision virtual resources from their cloud provider.
+
+## VPC
+
+Virtual private cloud (VPC): A VPC is a logically isolated section of the cloud that is dedicated to a single customer. VPCs provide customers with control over their own network environment, including the IP address range, subnets, and route tables.
+
+![vpc](~/assets/cloud/vpc.png)
+
+Components of Amazon VPC are,
+
+1. **VPC**: A VPC is a logically isolated virtual network in the AWS Cloud.
+2. **Subnet**: A subnet is a range of IP addresses in a VPC. A subnet must reside in a single Availability Zone.
+3. **Route table**: A route table controls how traffic flows in and out of a subnet.
+4. **Network gateway**: A network gateway connects your VPC to the internet or to another VPC.
+
+<details>
+<summary>Click me to view analogy</summary>
+
+A VPC is a logically isolated section of the AWS cloud where you can launch AWS resources in a private network. It is similar to a gated community, where only authorized residents have access.
+
+Here is a more detailed analogy:
+
+VPC: A VPC is like a gated community, where only authorized residents have access.
+Subnets: Subnets are like the different neighborhoods within the gated community.
+Route tables: Route tables are like the street signs in the gated community. They tell traffic where to go.
+Security groups: Security groups are like the security gates in the gated community. They control who can enter and leave each neighborhood.
+Here is an example of how a VPC can be used to protect a residential property:
+
+A homeowner can create a VPC to isolate their home network from the public internet. This can help to protect their home network from cyberattacks.
+
+The homeowner can then create subnets to divide their home network into different zones, such as a guest network, a smart home network, and a work network. This can help to improve the security and performance of the home network.
+
+The homeowner can then use route tables to direct traffic between the different subnets and to the public internet. For example, the homeowner can create a route table that allows guest devices to access the internet, but not the smart home network or the work network.
+
+Finally, the homeowner can use security groups to control who can access each subnet. For example, the homeowner can create a security group that allows only authorized devices to access the work network.
+
+By using a VPC, the homeowner can create a secure and isolated network for their home. This can help to protect their home network from cyberattacks and improve its performance.
+</details>
+
+## Subnet
+
+A subnet is a range of IP addresses within a VPC. Subnets are used to segment a VPC into smaller networks, such as a public subnet for web servers and a private subnet for database servers.
+
+There are two types of subnets in AWS:
+
+- **Public subnets**: Public subnets have access to the internet. Resources in a public subnet can communicate with the internet using a NAT gateway or an internet gateway.
+- **Private subnets**: Private subnets do not have access to the internet. Resources in a private subnet can communicate with each other and with resources in other VPCs using a VPC peering connection or a transit gateway.
+
+When creating a subnet, you must specify the following:
+
+- VPC ID: The ID of the VPC that the subnet is in.
+- CIDR block: The range of IP addresses in the subnet.
+- Availability zone: The availability zone where the subnet is located.
+
+<details>
+<summary>Click me to view analogy</summary>
+Imagine that you are a homeowner and you have a large house. You want to have multiple Wi-Fi networks in your house, such as a separate Wi-Fi network for your guests and a separate Wi-Fi network for your smart home devices.
+
+You can use a router to create multiple Wi-Fi networks in your house. Each Wi-Fi network would be isolated from the other Wi-Fi networks, so that each network would be secure and private.
+</details>
+
+## Routing Table
+
+A route table in AWS is a set of rules that determine how traffic is routed within a VPC and to the internet. Route tables are associated with subnets, and each subnet can only be associated with one route table at a time.
+
+Route tables contain the following information:
+
+- Destination: The IP address or CIDR block that the rule applies to.
+- Target: The next hop for traffic that matches the rule.
+- Type: The type of route, such as gateway, internet gateway, or VPC peering connection.
+- Priority: The priority of the rule. Rules with higher priorities are applied before rules with lower priorities.
+
+When a packet is sent from a resource in a subnet, the VPC checks the route table associated with the subnet to determine how to route the packet. The VPC will route the packet to the next hop specified in the first rule that matches the packet's destination.
+
+<details>
+<summary>Click me to view analogy</summary>
+Imagine that you are a homeowner and you have a large house with multiple rooms. You have a router in your living room that is connected to the internet. You also have a Wi-Fi extender in your bedroom so that you can get good Wi-Fi coverage throughout your house.
+
+When you send a packet from your phone in your bedroom to a website on the internet, the packet will first be routed to the Wi-Fi extender. The Wi-Fi extender will then route the packet to the router in your living room. The router will then route the packet to the internet.
+</details>
+
+## Internet Gateway
+
+An internet gateway (IGW) in AWS is a highly available device that provides connectivity between your VPC and the internet. It allows instances in your public subnets to initiate outbound traffic to the internet and to receive inbound traffic initiated from the internet.
+
+A default VPC includes an internet gateway, and each default subnet is a public subnet. Each instance that you launch into a default subnet has a private IPv4 address and a public IPv4 address.
+
+## Securing the network
+
+Security groups and network access control lists (NACLs) are both essential components of cloud networking that play a crucial role in safeguarding your resources and maintaining network security. While they share some similarities, they also have distinct features and serve different purposes.
+
+### Security Groups
+
+Security groups are stateful firewall-like tools that control inbound and outbound traffic at the instance level within a VPC. They act as virtual firewalls, allowing or denying traffic based on specified security rules. Each security group is associated with one or more instances, and the rules defined within the security group apply to all instances associated with it.
+
+:::info[When to use Security Groups]
+- To control traffic to and from specific instances
+- To implement granular access control policies for individual instances
+- To define rules based on instance metadata or tags
+:::
+
+### NACLs
+
+NACLs, on the other hand, operate at the subnet level and control traffic entering and exiting a subnet. They are stateless, meaning they do not track the state of a connection and evaluate rules independently for each packet. NACLs provide an additional layer of security for subnets, complementing the security groups that protect individual instances.
+
+:::info[When to use NACLs]
+- To control traffic entering and exiting subnets
+- To provide an additional layer of security for subnets
+- To define rules based on source IP address, destination IP address, and port number
+:::
+
+Key Differences between Security Groups and NACL,
+
+| Feature | Security Groups | NACLs |
+| ------- | --------------- | ----- |
+| Scope	| Instance level | Subnet level |
+| Stateful | Yes | No |
+| Rule Order | No order | Numbered order |
+| Application |	Specific instances | Subnets |
+
+## Benefits of VPC
+
+Here are some of the benefits of using Amazon VPC:
+
+- **Isolation**: Amazon VPC isolates your resources from other VPCs, so you can control network access to your resources.
+- **Security**: Amazon VPC provides a variety of security features to protect your resources, such as security groups, network access control lists (NACLs), and flow logs.
+- **Scalability**: Amazon VPC is highly scalable, so you can easily add or remove resources as needed.
+- **Reliability**: Amazon VPC is reliable and available, so you can be confident that your resources will be up and running when you need them.
+
+## Network Reference Architecture
+
+![network](~/assets/cloud/network.png)
+
+## Analogy of Network Concepts
+
+![real-estate](~/assets/cloud/real-estate.png)

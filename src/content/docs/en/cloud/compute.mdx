@@ -1,0 +1,45 @@
+---
+title: Compute
+description: "Astro is the web framework for building content-driven websites like blogs, marketing, and e-commerce. Learn why Astro might be a good choice for your next website."
+i18nReady: true
+---
+
+In cloud computing, the term “compute” describes concepts and objects related to `software computation`. It is a generic term used to reference processing power, memory, networking, storage, and other resources required for the computational success of any program. 
+
+Compute resources are measurable quantities of compute power that can be requested, allocated, and consumed for computing activities. Some examples of compute resources include:
+
+- CPU: The central processing unit (CPU) is the brain of any computer. CPU is measured in units called millicores. Application developers can specify how many allocated CPUs are required for running their application and to process data.
+
+- Memory: Memory is measured in bytes. Applications can make memory requests that are needed to run efficiently.
+
+## Compute Services in AWS
+
+- **Amazon Elastic Compute Cloud (EC2)**: EC2 is a web service that provides virtual servers that can be used to run a wide variety of applications.
+- **Amazon Lightsail**: Lightsail is a simple cloud platform that provides everything you need to build and deploy a web app or website.
+- **Amazon Elastic Beanstalk**: Elastic Beanstalk is a fully managed service that makes it easy to deploy and scale web applications and APIs.
+- **Amazon Elastic Kubernetes Service (EKS)**: EKS is a managed Kubernetes service that makes it easy to deploy, manage, and scale containerized applications.
+- **AWS Lambda**: Lambda is a serverless compute service that lets you run code without provisioning or managing servers.
+
+## EC2
+
+Amazon EC2 provides on-demand, scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 reduces hardware costs so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage.
+
+Creating and managing EC2 instances is a fundamental aspect of cloud computing, allowing users to provision and maintain virtual machines for various applications and workloads.
+
+:::tip
+This will be first service you explore to understand the power of cloud computing. You can create an instance of required CPU, RAM and Disk and use it to install any application and can terminate the instance once you are done. 
+:::
+
+## Lambda
+
+Lambda is a serverless computing platform that allows you to run code without having to provision or manage servers. You simply upload your code to Lambda, and it will execute it on demand. Lambda is a good choice for applications that are triggered by events, such as when a file is uploaded to Amazon S3 or an HTTP request is received.
+
+## Difference between EC2 vs Lambda
+
+| Feature | EC2 | Lambda |
+| ------- | --- | ------ |
+| Provisioning | You must provision and manage VMs | No provisioning required |
+| Control | You have complete control over your VMs | Less control over the execution environment |
+| Cost | You pay for the resources you consume, including CPU, memory, and storage | You pay only for the time your code runs |
+| Scalability | You can scale your VMs up or down manually or using Auto Scaling | Lambda scales automatically based on demand |
+| Use cases | Suitable for long-running applications, batch processing, and applications with high memory requirements | Suitable for event-driven applications, short-lived tasks, and applications with variable workloads |

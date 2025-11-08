@@ -1,0 +1,54 @@
+---
+type: tutorial
+title: Create your NoSQL database
+description: |-
+  Tutorial: Build in cloud: Storage —
+  Add new pages to your site with navigation links between them
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Creating a DynamoDB table
+
+1. Open the AWS Management Console and sign in to your AWS account.
+2. Navigate to the DynamoDB service by clicking on the Services tab and selecting DynamoDB.
+3. In the DynamoDB console, click on the Create table button.
+4. In the Create table window, do the following:
+    - For Table name, enter a name for your table. `Products`
+    - For Primary key, choose the partition key and sort key for your table. A partition key is a single attribute that uniquely identifies each item in the table. `id`
+    - There is no need to create additional columns/attributes since this is a NoSQL, no schema is required
+
+![dynamo](~/assets/labs/dynamodb.jpg)
+
+5. For "Table Settings" select Default Settings
+6. If everything looks correct, click on Create table.
+
+## Inserting data in table
+
+1. From the navigation menu selecte "Tables" -> "Explore Items"
+2. Since the table is empty, click on Create item
+3. You can select additional attributes to be added to table from "Add Attribute"
+
+![dynamo-entry](~/assets/labs/dynamo-create.jpg)
+
+4. Since the table is NoSQL, each item can have different number of attributes
+5. You can view the inserted items in the "Explore Items"
+
+:::tip[Exploratory]
+You can now try to add items using command line as before in S3. You might need to create new role and assign them to instance.
+:::
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can create a dynamoDB table in my AWS account.
+- [ ] I can add and view items in the DynamoDB table.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

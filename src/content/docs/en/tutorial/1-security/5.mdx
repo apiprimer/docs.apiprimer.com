@@ -1,0 +1,98 @@
+---
+type: tutorial
+title: Test your knowledge - Security
+description: |-
+  Tutorial: Build your first Astro blog —
+  Connect your tutorial project's GitHub repo to Netlify and deploy to the web
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. What does IAM stand for in AWS?
+
+  <MultipleChoice>
+    <Option>
+      Internet Access Manager
+    </Option>
+    <Option>
+      Identity Authentication Method
+    </Option>
+    <Option isCorrect>
+      Identity and Access Management
+    </Option>
+  </MultipleChoice>
+
+2. What type of security is required to access one AWS resource to another resource in a secured manner considering least privilege?
+
+  <MultipleChoice>
+    <Option>
+      Group Based
+    </Option>
+    <Option isCorrect>
+      Role Based
+    </Option>
+    <Option>
+      Access Keys
+    </Option>
+  </MultipleChoice>
+
+3. Which of the following is a best practice for the root account?
+
+  <MultipleChoice>
+    <Option>
+      Use it daily for administrative tasks
+    </Option>
+    <Option>
+      Store access keys in code
+    </Option>
+    <Option isCorrect>
+      Enable MFA and don’t use it for everyday tasks
+    </Option>
+  </MultipleChoice>
+
+4. What happens when you attach a policy to an IAM group?
+
+  <MultipleChoice>
+    <Option>
+      Only the group creator gets the permissions
+    </Option>
+    <Option isCorrect>
+      All users in that group inherit the policy permissions
+    </Option>
+    <Option>
+      The policy is applied only when users log in via CLI
+    </Option>
+  </MultipleChoice>
+
+5. By default, when you create a new IAM user, what permissions does it have?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      No permissions at all
+    </Option>
+    <Option>
+      Full administrator access
+    </Option>
+    <Option>
+      Read-only access to all services
+    </Option>
+  </MultipleChoice>
+</Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with security concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- <p>[A step-by-step guide to deploying on Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/) <Badge class="neutral-badge" text="external" /></p> */}

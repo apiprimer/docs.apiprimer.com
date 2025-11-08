@@ -1,0 +1,46 @@
+---
+type: tutorial
+title: Create Users
+description: |-
+  Tutorial: Build in cloud: Security —
+  Create users with least privilege access to your cloud account.
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+import { Steps } from '@astrojs/starlight/components';
+import Badge from "~/components/Badge.astro"
+
+1. Open the AWS Management Console and sign in to your AWS account.
+2. Navigate to the IAM service by clicking on the "Services" tab and selecting "IAM".
+3. In the IAM console, choose "Users" from the left-hand navigation pane.
+4. Click on the "Add users" button.
+5. In the "New user" window, enter a unique name for the user. `myuser`
+6. Check the "Provide user access to AWS Management console"
+7. Are you providing console access to a person? Select the `I want to create an IAM User`
+8. Console Password - `Select custom password` and provide the password of choice
+9. If granting access through the console, click on "Next: Permissions".
+10. Select option "Attach policies directly"
+11. Search for `ViewOnly` and select the policy `ViewOnlyAccess`
+12. Click on "Next: Review". Review the user details, including permissions and tags.
+
+![users](~/assets/labs/users.jpg)
+
+13. Click on "Create user".
+
+The newly created user will appear in the list of users. You can use this credentials to login as the specified user. But lets assign an appropriate policy to be used before trying this. 
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I have created a new user with least privilege access.
+</Checklist>
+</Box>
+
+{/*
+### Resources
+
+- <p>[FreeCodeCamp.org](https://freecodecamp.org) <Badge class="neutral-badge" text="external" /> — a free educational site with full courses or quick refreshers in HTML, CSS, JS, and more.</p> */}

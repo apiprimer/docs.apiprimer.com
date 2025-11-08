@@ -1,0 +1,131 @@
+---
+import { LinkButton } from '@astrojs/starlight/components';
+import John from './John.jpeg';
+import { Image } from 'astro:assets';
+
+const offerUrl = 'https://apiprimer.com/contact/';
+
+const idCount = (((Astro.locals as any)._ad_render_id as number | undefined) ??= 1);
+(Astro.locals as any)._ad_render_id++;
+const headingId = `learn-kong-${idCount}`;
+---
+
+<div class="container" lang="en" dir="ltr" data-algolia-exclude>
+	<aside aria-labelledby={headingId}>
+		<div class="graphics">
+			<!-- <Image class="scrimba-bubble" src={Scrimba} alt="Scrimba" width="72" /> -->
+			<Image src={John} alt="" width="72" />
+		</div>
+		<h2 id={headingId}>
+			<strong>Learn API Management</strong> with John
+		</h2>
+		<p>Learn and deploy your API Gateway with Kong</p>
+		<LinkButton href={offerUrl} class="cta" data-scrimba-cta>Enroll now</LinkButton>
+	</aside>
+</div>
+
+<script>
+	document.querySelectorAll('a[data-scrimba-cta]').forEach((link) =>
+		link.addEventListener('click', () => {
+			(window as any).fathom?.trackEvent('Docs: Scrimba campaign click');
+		})
+	);
+</script>
+
+<style>
+	.container {
+		container-type: inline-size;
+		max-width: 45rem;
+		margin-inline: auto;
+	}
+	aside {
+		margin-top: 2rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		padding: 1rem;
+		background-color: var(--sl-color-gray-6);
+		box-shadow: var(--sl-shadow-md);
+
+		/* Internal layout */
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, auto);
+		grid-template-areas:
+			'graphics'
+			'title'
+			'tagline'
+			'cta';
+		gap: 0.75rem 0.5rem;
+		align-items: center;
+		line-height: var(--sl-line-height-headings);
+	}
+
+	.graphics {
+		grid-area: graphics;
+		display: flex;
+		justify-content: center;
+	}
+	.scrimba-bubble {
+		z-index: 1;
+	}
+	.graphics > * + * {
+		margin-inline-start: -0.25rem;
+	}
+
+	img {
+		outline: 4px solid var(--sl-color-gray-6);
+		border-radius: 999rem;
+		max-width: 3rem;
+		height: auto;
+	}
+
+	h2 {
+		grid-area: title;
+		margin: 0 !important;
+		font-weight: 400 !important;
+		text-wrap: balance;
+		text-align: center;
+		color: var(--sl-color-white);
+	}
+	h2 strong {
+		/* font-size: var(--sl-text-xl); */
+	}
+
+	p {
+		grid-area: tagline;
+		font-size: var(--sl-text-sm);
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	.cta {
+		grid-area: cta;
+		text-align: center;
+		justify-content: center;
+		font-size: var(--sl-text-sm) !important;
+		font-weight: 500;
+		padding-block: 0.6875rem !important;
+		transition: opacity 200ms ease-out;
+	}
+	.cta:hover {
+		opacity: 0.8;
+	}
+
+	/* When there’s enough room, move the CTA button to the right instead of below. */
+	@container (width > 40rem) {
+		aside {
+			grid-template-columns: auto auto auto;
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'title graphics cta'
+				'tagline graphics cta';
+			row-gap: 0.25rem;
+		}
+		h2 {
+			text-align: left;
+		}
+		p {
+			text-align: start;
+		}
+	}
+</style>

@@ -1,0 +1,87 @@
+---
+type: tutorial
+title: Test your knowledge - Compute
+description: |-
+  Tutorial: Build your first Astro blog —
+  Create a global stylesheet for site-wide styling
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. What is a way of executing your code without the information of underlying infrastructure?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      Serverless
+    </Option>
+    <Option>
+      Virtualization
+    </Option>
+    <Option>
+      Microservices
+    </Option>
+  </MultipleChoice>
+
+2. AWS Lambda belongs to which segment of services in AWS Cloud Computing?
+
+  <MultipleChoice>
+    <Option>
+      Network
+    </Option>
+    <Option>
+      Database
+    </Option>
+    <Option isCorrect>
+      Compute
+    </Option>
+  </MultipleChoice>
+
+3. In AWS Lambda how are the functions invoked?
+
+  <MultipleChoice>
+    <Option>
+      Through URL
+    </Option>
+    <Option isCorrect>
+      Event Driven
+    </Option>
+    <Option>
+      Direct access
+    </Option>
+  </MultipleChoice>
+
+4. You need to grant an application running on an EC2 instance permission to read files from an S3 bucket. The security team forbids putting long-term IAM credentials on the instance. What is the BEST solution?
+
+  <MultipleChoice>
+    <Option>
+      Create an IAM user, generate access keys, and store them in the application code
+    </Option>
+    <Option isCorrect>
+      Attach an IAM role to the EC2 instance with an appropriate S3 policy
+    </Option>
+    <Option>
+      Enable S3 server-side encryption and allow public access to the bucket
+    </Option>
+  </MultipleChoice>
+ </Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with compute concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+{/* ### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables) */}

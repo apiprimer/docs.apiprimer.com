@@ -1,0 +1,140 @@
+---
+type: tutorial
+title: Access with Java Springboot
+description: |-
+  Tutorial: Build your first Astro blog —
+  Use getStaticPaths() to create multiple pages (routes) at once
+i18nReady: true
+---
+import Box from '~/components/tutorial/Box.astro';
+import Checklist from '~/components/Checklist.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+import { Steps } from '@astrojs/starlight/components';
+
+## Installing Docker
+
+Let's use the EC2 instance for understanding the concepts of docker and later you can install it on your laptop or desktop using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+1. Login into one of the EC2 instance that you have it running. 
+2. Once you SSH into the instance, issue the below commands
+
+```shell
+sudo yum install docker
+```
+```shell
+sudo usermod -a -G docker ec2-user
+```
+```shell
+newgrp docker
+```
+```shell
+sudo systemctl enable docker.service
+```
+```shell
+sudo systemctl start docker.service
+```
+
+3. To check if your docker is up and running run `ps` command
+
+```
+docker ps
+```
+
+4. To test if the docker is installed properly, you will use hello-world image from docker repository
+
+```shell
+docker pull hello-world
+docker run hello-world
+```
+
+5. In order to test if you can access the service running inside the docker you can install an nginx server and try accessing using Public IP from your EC2 instance
+
+```shell
+docker pull nginx
+docker run -it --rm -d -p 8080:80 --name web nginx
+```
+
+6. When you access the port 8080 from your browser with your EC2 instance IP address `http://PUBLIC_IP:8080` you will see below output.
+
+```text
+Welcome to nginx!
+
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+```
+
+## Packaging API
+
+As you have seen earlier in [introduction](../0-introduction/2.mdx), you need to install JDK17 and Maven and other dependent packages used by project to connect to AWS DynamoDB. You cannot do this everywhere this service needs to run. 
+
+This issue is addressed by containers where it packages all the dependencies as `image` that can be just downloaded and run immediately.
+
+1. To convert your application into a image you need to provide the instructions to docker what needs to be added. This is given in the form of Dockerfile
+
+```text
+FROM openjdk:17
+VOLUME /tmp
+COPY target/dynamo-1.0.0.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+```
+2. Instructions say that
+    - Download the JDK17 from openjdk
+    - Mount the /tmp volume
+    - Copy the jar file from target directory to image
+    - Run the jar file
+    - Expose the port 8080
+3. In order to build this image from the instruction file, where `ACCOUNT_NAME` is your dockerhub account name
+
+```shell
+docker build -t ACCOUNT_NAME/spring-rest-api .
+```
+
+4. This image needs to available in a place where the EC2 instance can download from, hence you publish this image to DockerHub repository which is publicly accessible. If this is your first time it will prompt you for your DockerHub credentials.
+
+```shell
+docker push ACCOUNT_NAME/spring-rest-api
+```
+
+## Running API
+
+1. Now login to your EC2 instance and make sure docker is up and running using command `docker ps`. If its not running refer the [Docker instrutions](docker)
+
+2. Once the docker is up and running, you can now download the image you published earlier and start the image
+
+```shell
+docker pull ACCOUNT_NAME/spring-rest-api
+docker run -it --rm -d -p 8080:8080 ACCOUNT_NAME/spring-rest-api
+```
+
+3. You can now access your API using your instance public IP `http://PUBLIP-IP:8080/products` and you should be able to see the items from your DynamoDB table
+
+:::note[Hint]
+If you get any access denied error while reading from DynamoDB, remember you need to provide permission using roles for EC2 to talk to DynamoDB service. 
+:::
+
+**Tada! You just published a API for anyone to use :)**
+
+:::tip[Power of Containers]
+You just experienced the power of containers where you build your application once and anyone can use them without worrying about dependencies in their system. It just works and not just on your machine ;)
+:::
+
+<Box icon="check-list">
+<Checklist>
+- [ ] I can access the data from the DynamoDB table using java spring boot application.
+- [ ] I can create a docker image for my java spring boot application.
+- [ ] I can run my java spring boot application inside a docker container.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [Dynamic Page Routing in Astro](/en/guides/routing/#dynamic-routes)
+
+- [`getStaticPaths()` API documentation](/en/reference/routing-reference/#getstaticpaths) */}

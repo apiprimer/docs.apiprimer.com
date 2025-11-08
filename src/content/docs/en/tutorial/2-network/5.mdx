@@ -1,0 +1,90 @@
+---
+type: tutorial
+title: Test your knowledge - Network
+description: |-
+  Tutorial: Build your first Astro blog —
+  Create a global stylesheet for site-wide styling
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import Badge from "~/components/Badge.astro"
+
+<Box icon="question-mark">
+
+1. Which network component in AWS is stateful?
+
+  <MultipleChoice>
+    <Option>
+      Subnet
+    </Option>
+    <Option>
+      Network ACL
+    </Option>
+    <Option isCorrect>
+      Security Groups
+    </Option>
+  </MultipleChoice>
+
+2. Which component in AWS is used to route traffic out of VPC?
+
+  <MultipleChoice>
+    <Option>
+      Out Gateway
+    </Option>
+    <Option isCorrect>
+      Internet Gateway
+    </Option>
+    <Option>
+      NACL
+    </Option>
+  </MultipleChoice>
+
+3. What component in AWS defines a whole set of IP address for your organization which can be used to host applications?
+
+  <MultipleChoice>
+    <Option>
+      Firewall
+    </Option>
+    <Option>
+      Subnet
+    </Option>
+    <Option isCorrect>
+      VPC
+    </Option>
+  </MultipleChoice>
+
+4. Which network component in AWS is Stateless which requires the reverse traffic to have allow rules explicitly?
+
+  <MultipleChoice>
+    <Option isCorrect>
+      Network ACL
+    </Option>
+    <Option>
+      Security Groups
+    </Option>
+    <Option>
+      IP Whitelisting
+    </Option>
+  </MultipleChoice>
+ </Box>
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I am comfortable with networking concepts in cloud!
+- [ ] Good to proceed to the next unit!
+</Checklist>
+</Box>
+
+{/* ### Resources
+- [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+- [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
+
+- [CSS variables in Astro](/en/guides/styling/#css-variables) */}
+
+
+

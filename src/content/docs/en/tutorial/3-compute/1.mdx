@@ -1,0 +1,61 @@
+---
+type: tutorial
+title: Create your EC2 Instance
+description: |-
+  Tutorial: Build in cloud: Networking —
+  Add new pages to your site with navigation links between them
+i18nReady: true
+---
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+
+## Creating an Amazon EC2 instance
+
+1. Open the Amazon EC2 console ([https://console.aws.amazon.com/ec2/]).
+2. In the navigation pane, choose **"Instances"** and click **Launch Instances**
+3. Provide a name for the ec2 instance `my-instance`
+4. An AMI is a template that contains the configuration for an EC2 instance. AMIs include the operating system, applications, and other software that will be installed on the instance. Select `Amazon Linux 2023 AMI`
+5. An instance type defines the hardware configuration of the EC2 instance, including the number of CPUs, amount of memory, and storage capacity. Select `t2.micro` - which has capacity of 1 vCPU and 1G RAM
+6. Create a **Keypair** which will used when you want to connect to this instance via command line. `my-keypair`. Keypair is nothing but a public/private key where public key is deployed in EC2 instance and if you or anyone wants to connect should provide the private key to connect to instance. 
+7. In the Network Settings, click **Edit** and choose the VPC `myvpc` and Subnet `mypublicsubnet` which you have already created. Change the **Auto Assign Public IP** to Enable
+8. For **Firewall (Security Group)**, choose the **Create security group** and provide a name `ssh-access`. 
+
+![sec-group](~/assets/labs/secgroup.jpg)
+
+:::tip[Note]
+If you would like your VMs to be not opened to entire world to see, since it will have a public ip created. In order to connect via EC2 Instance Connect you need to allow the `13.233.177.0/29` IPs as source on port 22 for ap-south-1 region - this IP changes for each region. [Full IP List](https://ip-ranges.amazonaws.com/ip-ranges.json)
+::: 
+
+9. Leave the remanining settings as default and proceed to Summary and verify all the details are good. 
+
+![ec2-launch](~/assets/labs/ec2-launch.jpg)
+
+10. Once you have verified all the settings, click **Launch instance**. This will provision the instance and start running the operating system and applications.
+
+:::note[CLI command]
+```sh
+aws ec2 run-instances --image-id ami-02a2af70a66af6dfb --count 1 --instance-type t2.micro --key-name my-keypair --security-group-ids sg-0af660089ac5c7ab2 --subnet-id subnet-07ca6b02f2e67d507
+```
+:::
+
+## Connecting to Instance
+
+1. Goto EC2 Dashboard page and you will find the instance created
+2. Click on the instance `myinstance`
+3. Click "Connect" and you can choose the option "EC2 Instance Connect" to open the instance in the browser window
+4. You will see the SSH window with command line logged into the user
+
+
+<Box icon="check-list">
+
+<Checklist>
+- [ ] I can create and launch an EC2 instance in my AWS account.
+- [ ] I can ssh into the EC2 instance using EC2 Instance Connect.
+</Checklist>
+</Box>
+
+{/* ### Resources
+
+- [File-based Routing in Astro](/en/basics/astro-pages/#file-based-routing)
+
+- [Astro page HTML](/en/basics/astro-pages/#astro-pages) */}

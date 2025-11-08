@@ -1,0 +1,23 @@
+# Agile development
+
+Agile development is an iterative and incremental approach to software development. It is based on the principle of continuous feedback and collaboration between the development team and the users and stakeholders.
+
+![agile](/dt/agile.webp)
+
+Agile development projects are typically divided into short cycles, called sprints. 
+
+- Each sprint begins with a planning meeting where the development team and the users and stakeholders prioritize the requirements for the sprint. 
+- The development team then works to implement the prioritized requirements during the sprint. 
+- At the end of the sprint, the development team demonstrates the implemented requirements to the users and stakeholders. 
+- The users and stakeholders then provide feedback on the implemented requirements and the development team uses this feedback to plan for the next sprint.
+
+Agile development is a more flexible and responsive approach to software development than traditional SDLC development. It is also easier to make changes to the requirements of the software system during the development process.
+
+## Why the shift towards agile development?
+
+There are a number of reasons why companies are shifting towards agile development:
+
+- Faster time to market: Agile development can help companies to get their products to market faster. This is because agile development is an iterative and incremental approach that allows companies to get feedback from users and stakeholders early and often.
+- Higher quality products: Agile development can help companies to deliver higher quality products. This is because agile development is based on the principle of continuous feedback and collaboration between the development team and the users and stakeholders.
+- Increased customer satisfaction: Agile development can help companies to increase customer satisfaction. This is because agile development allows companies to get feedback from users and stakeholders early and often, and to use this feedback to make changes to the software system during the development process.
+- Improved employee morale: Agile development can help to improve employee morale. This is because agile development is a collaborative approach that gives employees a greater sense of ownership over the software system they are developing.
