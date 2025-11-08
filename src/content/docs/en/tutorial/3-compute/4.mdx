@@ -55,6 +55,20 @@ import Badge from "~/components/Badge.astro"
       Direct access
     </Option>
   </MultipleChoice>
+
+4. You need to grant an application running on an EC2 instance permission to read files from an S3 bucket. The security team forbids putting long-term IAM credentials on the instance. What is the BEST solution?
+
+  <MultipleChoice>
+    <Option>
+      Create an IAM user, generate access keys, and store them in the application code
+    </Option>
+    <Option isCorrect>
+      Attach an IAM role to the EC2 instance with an appropriate S3 policy
+    </Option>
+    <Option>
+      Enable S3 server-side encryption and allow public access to the bucket
+    </Option>
+  </MultipleChoice>
  </Box>
 
 <Box icon="check-list">

@@ -13,67 +13,67 @@ import Option from '~/components/tutorial/Option.astro';
 import PreCheck from '~/components/tutorial/PreCheck.astro';
 import { Steps } from '@astrojs/starlight/components';
 
-## Pre-requisites
+## Installing Docker
 
-You need to have [JDK 17](https://www.oracle.com/java/technologies/downloads/) and [Maven 3.5.3](https://maven.apache.org/download.cgi) installed
+Let's use the EC2 instance for understanding the concepts of docker and later you can install it on your laptop or desktop using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-## Creating API
-
-For creating a REST API you will use the Java Springboot framework
-
-1. Since Springboot itself is a separate topic of discussion, for the ease of explaining how to deploy APIs in cloud you will use the example [spring-rest-api](https://github.com/apiprimer/spring-rest-api)
-2. Clone this repo to your local directory
-3. Open the folder in your favorite IDE
-4. Any springboot project contains following structure,
-```
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       └── c2c
-│   │   │           └── dynamo
-│   │   │               ├── DemoApplication.java
-│   │   │               ├── DynamoDBConfig.java
-│   │   │               ├── ProductController.java
-│   │   │               ├── model
-│   │   │               │   └── Products.java
-│   │   │               └── repositories
-│   │   │                   └── ProductRepository.java
-│   │   └── resources
-│   │       ├── application.properties
-│   │       ├── static
-│   │       └── templates
-│   └── test
-│       └── java
-│           └── com
-│               └── c2c
-│                   └── dynamo
-│                       └── DemoApplicationTests.java
-├── Dockerfile
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
-```
-5. Inorder to compile this program and create an executable `jar`. Issue the below command,
+1. Login into one of the EC2 instance that you have it running. 
+2. Once you SSH into the instance, issue the below commands
 
 ```shell
-mvn clean install
+sudo yum install docker
 ```
-6. This will create a target directory which will contain the `dynamo-1.0.0.jar`
-7. This jar file can then be run to start the API server listening on port `8080`
+```shell
+sudo usermod -a -G docker ec2-user
+```
+```shell
+newgrp docker
+```
+```shell
+sudo systemctl enable docker.service
+```
+```shell
+sudo systemctl start docker.service
+```
+
+3. To check if your docker is up and running run `ps` command
+
+```
+docker ps
+```
+
+4. To test if the docker is installed properly, you will use hello-world image from docker repository
 
 ```shell
-java -jar target/dynamo-1.0.0.jar
+docker pull hello-world
+docker run hello-world
 ```
-8. Running the curl command `curl http://localhost:8080/products` should give result `[]`. Add some items in the table to see the proper response
-9. This API reads the data from the DynamoDB table you created in previous step. 
-10. Lets see how you can take this to EC2 instance and run this successfully
+
+5. In order to test if you can access the service running inside the docker you can install an nginx server and try accessing using Public IP from your EC2 instance
+
+```shell
+docker pull nginx
+docker run -it --rm -d -p 8080:80 --name web nginx
+```
+
+6. When you access the port 8080 from your browser with your EC2 instance IP address `http://PUBLIC_IP:8080` you will see below output.
+
+```text
+Welcome to nginx!
+
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+```
 
 ## Packaging API
 
-As you have seen earlier, you need to install JDK17 and Maven and other dependent packages used by project to connect to AWS DynamoDB. You cannot do this everywhere this service needs to run. 
+As you have seen earlier in [introduction](../0-introduction/2.mdx), you need to install JDK17 and Maven and other dependent packages used by project to connect to AWS DynamoDB. You cannot do this everywhere this service needs to run. 
 
-This issue is addressed by containers where it packages all the dependencies as `image` that can be just downloaded and run immediately. Just like the nginx server you run on [lab](docker)
+This issue is addressed by containers where it packages all the dependencies as `image` that can be just downloaded and run immediately.
 
 1. To convert your application into a image you need to provide the instructions to docker what needs to be added. This is given in the form of Dockerfile
 
@@ -90,7 +90,7 @@ EXPOSE 8080
     - Copy the jar file from target directory to image
     - Run the jar file
     - Expose the port 8080
-3. In order to build this image from the instruction file,
+3. In order to build this image from the instruction file, where `ACCOUNT_NAME` is your dockerhub account name
 
 ```shell
 docker build -t ACCOUNT_NAME/spring-rest-api .
@@ -127,8 +127,9 @@ You just experienced the power of containers where you build your application on
 
 <Box icon="check-list">
 <Checklist>
-- [ ] I can generate pages dynamically.
-- [ ] I can pass `props` to each page route.
+- [ ] I can access the data from the DynamoDB table using java spring boot application.
+- [ ] I can create a docker image for my java spring boot application.
+- [ ] I can run my java spring boot application inside a docker container.
 </Checklist>
 </Box>
 

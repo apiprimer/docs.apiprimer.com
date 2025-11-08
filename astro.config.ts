@@ -74,7 +74,7 @@ export default defineConfig({
 		}),
 		sitemap(),
 	],
-	trailingSlash: 'always',
+	trailingSlash: 'ignore',
 	scopedStyleStrategy: 'where',
 	compressHTML: false,
 	markdown: {

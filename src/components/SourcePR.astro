@@ -5,7 +5,7 @@ const { number, title } = Astro.props;
 
 <div class="source">
 	<Icon class="icon" name="github" />
-	<a href=`https://github.com/withastro/astro/pull/${number}`
+	<a href=`https://github.com/apiprimer/docs.apiprimer.com/pull/${number}`
 		>{Astro.locals.t('upgrade.implementationPR')}{title} (#{number})<span><slot /></span></a
 	>
 </div>

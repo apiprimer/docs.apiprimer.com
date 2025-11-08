@@ -2,6 +2,7 @@
 dist
 .astro/
 .github/
+scripts-unused/
 
 # dependencies
 node_modules/

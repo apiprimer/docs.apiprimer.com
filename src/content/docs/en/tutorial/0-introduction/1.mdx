@@ -1,46 +1,43 @@
 ---
 type: tutorial
-title: About this Tutorial
+title: Create your cloud account
 description: How to get started with the "Build your first Astro blog" tutorial.
 i18nReady: true
 ---
 import Checklist from '~/components/Checklist.astro';
 import Box from '~/components/tutorial/Box.astro';
+import Lede from '~/components/tutorial/Lede.astro';
 
-## What do I need to know to get started?
+<Lede> You can provision free accounts on any major cloud providers like AWS, GCP, Azure. For the purpose of this tutorial, you will be using AWS. 🚀 </Lede>
 
-Following are the recommended tools and knowledge to get the most out of this tutorial:
+To create an AWS account under the Free Tier, follow these steps:
 
-- **Laptop or Desktop**
-- Git, JDK17, Maven, NodeJS 18.x, AWS CLI, VS Code or your favorite editor
-- Docker for Desktop
-- **AWS Account** - [Create](./labs/login)
-- **GitHub Account** - [Create](./labs/git#create-your-github-account)
-- **DockerHub Account** - [Create](./labs/docker#create-your-dockerhub-account)
+1. Go to the [AWS Free Tier](https://aws.amazon.com/free/) and click Create a Free Account.
+2. Enter your account information and click Continue.
+3. Verify your email address and phone number.
+4. Create a password for your root user and click Continue.
+5. Review the AWS Customer Agreement and click Accept and Create Account.
 
-<details>
-<summary>How do I use the checklists at the bottom of each page?</summary>
+You will receive an email notification once your account is created.
 
-You check them off!
+Once your account is created, you can start using the AWS Free Tier services. The Free Tier includes a number of popular services, such as Amazon Elastic Compute Cloud (Amazon EC2), Amazon Simple Storage Service (Amazon S3), and Amazon Relational Database Service (Amazon RDS).
 
-At the end of each page, you'll find a clickable checklist of tasks you should now be able to do. Check these items off to see your progress in the Tutorial Tracker.
+:::tip[Free Tier Details]
+The AWS cloud account is free for 12 months and with limitations on how much you can use for each different resources. In order to avoid exceeding the free tier limits, make sure you limit your explorations to limited set of services. You can apply IAM policies to users to make some restrictions and enable services when needed
+:::
 
-Using the tracker is optional, but it can help you remember your place if you complete the tutorial over multiple visits. You can also leave some checklists blank as a reminder of units that you want to revisit later.
+## Securing the account
 
-(This data is only saved to your browser's local storage and is not available elsewhere. No data is sent to, nor stored by server.)
-</details>
+Once you login make sure to secure the account with MFA (Multi Factor Authentication) this can reduce the risk of account breach, leading to abuse of your cloud account. 
 
-<details>
-<summary>What if I need help, or want to learn more about the topic?</summary>
+1. Goto IAM console of the cloud account and follow all the Security recommendations given in the page. 
+2. The account you logged in is the root user for your account which has full privilege on your account. Do not use that account for the exploration purpose but use it only for administrative purpose like billing, user management. 
+3. Create a user in the upcoming section and assign only necessary permissions to the user. Use that user for login to account and other activities given in this hands-on tutorial.
 
-Our [friendly Slack Channel](https://join.slack.com/t/campus2corpc2c/shared_invite/zt-28ll0levk-9_Zbo8rM0b8MjKNJwyVxSA) is the place to be! 
-
-Hop into the Slack to ask questions, or say hi and chat in `#general` or `#cloud`.
-</details>
 
 <Box icon="check-list">
 
 <Checklist>
-- [ ] I'm ready to build this thing!
+- [ ] I have the AWS account created and secured with MFA.
 </Checklist>
 </Box>

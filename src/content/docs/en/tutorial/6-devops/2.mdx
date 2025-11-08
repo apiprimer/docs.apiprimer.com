@@ -22,7 +22,7 @@ Previously you have uploaded the static website manually using aws cli commands.
 3. Based on the pipeline depicted above, the only integration you have is to use **S3 Bucket** where you maintain the html/javascript code. 
 4. You create two variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_S3_BUCKET_NAME` as secrets so that you dont have to hardcode these secrets in your sourcecode. 
 5. In order to get the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` you login to your [AWS Account](https://console.aws.com). Goto `IAM` -> `Security` and then create `New Access Token` with permissions `Read & Write`. This will give programmatic access to read and write to your S3 bucket in AWS. 
-6. Copy the token and create the GitHub Secret `DOCKERHUB_TOKEN`
+6. Copy the token and create the GitHub Secret `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` with the values you copied from AWS.
 7. For `AWS_S3_BUCKET_NAME`, use your fully qualified S3 bucket name. 
 8. Once the secrets are created, GitHub Actions now has the permission to write files to your bucket. You will use these values in your workflow. 
 9. Either from your local laptop or any terminal create the following directory structure and files and copy paste the code given below to your `node.js.yml`

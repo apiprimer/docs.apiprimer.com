@@ -1,7 +1,7 @@
 # Site settings
 site.title: API Primer Documentation
 # Left Sidebar
-leftSidebar.sponsoredBy: Sponsored by
+leftSidebar.sponsoredBy: Powered by
 # Footer
 footer.community: Community
 footer.contribute: Contribute
@@ -30,7 +30,7 @@ recipesLink.singular: 'Related recipe:'
 recipesLink.plural: Related recipes
 # 404 Page
 404.title: Not Found
-404.content: This page isn’t in our solar system.
+404.content: This page isn’t in our docs system.
 404.linkText: Take me home.
 # Integrations vocabulary
 integrations.changelog: Changelog
@@ -61,8 +61,8 @@ expressiveCode.copyButtonCopied: Copied!
 # Backend Guides vocabulary
 backend.navTitle: More backend service guides
 # Starlight banner
-starlight.title: Want to build your own Docs?
-starlight.description: Grab this template to get started.
+starlight.title: Want to build your own apps?
+starlight.description: Contact us to get started.
 # `<StudioHeading>` component
 studioHeading.label: Studio feature
 # Upgrade guide

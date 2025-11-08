@@ -28,31 +28,45 @@ import Badge from "~/components/Badge.astro"
     </Option>
   </MultipleChoice>
 
-2. You want to update the home page of your existing website. What steps do you take?
+2. By default, when you create a new S3 bucket, who can access the objects inside it?
 
   <MultipleChoice>
     <Option>
-      I open a terminal, run `create astro`, and then visit my Netlify URL.
+      Everyone on the internet
     </Option>
     <Option>
-      I change a setting in my Netlify app, then start a new Astro project on astro.new.
+      Only people in your VPC
     </Option>
     <Option isCorrect>
-      I make an edit to `index.astro`. I commit and push my changes to GitHub. Netlify will handle the rest!
+      Only the bucket owner (nobody else)
     </Option>
   </MultipleChoice>
 
-2. You want to update the home page of your existing website. What steps do you take?
+3. You uploaded a 100 MB photo to S3. How many objects are now in your bucket?
 
   <MultipleChoice>
     <Option>
-      I open a terminal, run `create astro`, and then visit my Netlify URL.
-    </Option>
-    <Option>
-      I change a setting in my Netlify app, then start a new Astro project on astro.new.
+      10
     </Option>
     <Option isCorrect>
-      I make an edit to `index.astro`. I commit and push my changes to GitHub. Netlify will handle the rest!
+      1
+    </Option>
+    <Option>
+      100
+    </Option>
+  </MultipleChoice>
+
+4. Which of the following is a valid S3 bucket name?
+
+  <MultipleChoice>
+    <Option>
+      MyBucket!2025
+    </Option>
+    <Option isCorrect>
+      my-bucket-name
+    </Option>
+    <Option>
+      My Bucket
     </Option>
   </MultipleChoice>
  </Box>
@@ -65,9 +79,9 @@ import Badge from "~/components/Badge.astro"
 </Checklist>
 </Box>
 
-### Resources
+{/* ### Resources
 - [Astro syntax vs JSX - comparison](/en/reference/astro-syntax/#differences-between-astro-and-jsx)
 
 - [Astro `<style>` tag](/en/guides/styling/#styling-in-astro)
 
-- [CSS variables in Astro](/en/guides/styling/#css-variables)
+- [CSS variables in Astro](/en/guides/styling/#css-variables) */}
