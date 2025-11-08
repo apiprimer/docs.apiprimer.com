@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import HoustonLove from '~/assets/houston_love.png';
+// import { Image } from 'astro:assets';
+// import Love from '~/assets/love.png';
 import Button from '~/components/Button.astro';
 
 const { title, cta } = Astro.props;
@@ -9,7 +9,7 @@ const { title, cta } = Astro.props;
 <div class="discord">
 	<h2>{title}</h2>
 	<div class="cta">
-		<Image src={HoustonLove} alt="" class="hide" />
+		<!-- <Image src={Love} alt="" class="hide" /> -->
 		<Button variant="secondary" link="https://astro.build/chat">{cta}</Button>
 	</div>
 </div>

@@ -8,9 +8,9 @@ export const AstroDocsI18nSchema = z
 		'leftSidebar.sponsoredBy': z.string(),
 		// Footer
 		'footer.community': z.string(),
-		'footer.contribute': z.string(),
+		'footer.youtube': z.string(),
 		'footer.translatePage': z.string(),
-		'footer.sponsor': z.string(),
+		'footer.linkedin': z.string(),
 		// Used in `<Since>`: Added in: v0.24.0 [NEW]
 		'since.addedIn': z.string(),
 		'since.new': z.string(),

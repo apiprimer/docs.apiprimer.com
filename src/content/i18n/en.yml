@@ -3,8 +3,8 @@ site.title: API Primer Documentation
 # Left Sidebar
 leftSidebar.sponsoredBy: Powered by
 # Footer
-footer.community: Community
-footer.contribute: Contribute
+footer.linkedin: Follow Us
+footer.youtube: Tutorial Videos
 footer.translatePage: Translate this page
 footer.sponsor: Sponsor
 # Used in `<Since>`: Added in: v0.24.0 [NEW]
