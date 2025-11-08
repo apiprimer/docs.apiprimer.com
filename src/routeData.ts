@@ -42,22 +42,22 @@ function updateHead(context: APIContext) {
 
 	head.push({ tag: 'meta', attrs: { property: 'og:image', content: canonicalImageSrc.href } });
 	head.push({ tag: 'meta', attrs: { name: 'twitter:image', content: canonicalImageSrc.href } });
-	head.push({ tag: 'meta', attrs: { name: 'twitter:site', content: 'astrodotbuild' } });
+	head.push({ tag: 'meta', attrs: { name: 'twitter:site', content: 'docs.apiprimer.com' } });
 
 	// Algolia docsearch language facet
 	head.push({ tag: 'meta', attrs: { name: 'docsearch:language', content: lang } });
 
-	// Fathom analytics
+	// Google analytics
 	head.push({
 		tag: 'script',
 		attrs: {
-			src: 'https://www.googletagmanager.com/gtag/js?id=G-EXAMPLEID',
+			src: 'https://www.googletagmanager.com/gtag/js?id=G-88E1EPTY62',
 			content: `
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
-			gtag('config', 'G-EXAMPLEID');
+			gtag('config', 'G-88E1EPTY62');
 			`,
 		},
 	});
