@@ -28,7 +28,7 @@ const docSearchStrings =
 		}, {} as any);
 ---
 
-<!-- <sl-doc-search data-translations={JSON.stringify(docSearchStrings)}>
+<sl-doc-search data-translations={JSON.stringify(docSearchStrings)}>
 	<button
 		type="button"
 		class="DocSearch DocSearch-Button"
@@ -48,7 +48,7 @@ const docSearchStrings =
 		</span>
 		<span class="DocSearch-Button-Keys"></span>
 	</button>
-</sl-doc-search> -->
+</sl-doc-search>
 
 <script>
 	import docsearch from '@docsearch/js';
@@ -59,9 +59,9 @@ const docSearchStrings =
 	// Algolia Settings
 	docsearch({
 		container: 'sl-doc-search',
-		appId: '',
-		indexName: '',
-		apiKey: '',
+		appId: 'UOZLV5GO4H',
+		indexName: 'docs',
+		apiKey: 'cd153385056c0672fc7ed88da42a56f9',
 		searchParameters: {
 			facetFilters: [[`lang:${location.pathname.split('/')[1]}`]],
 			attributesToHighlight: ['hierarchy.lvl0'],
