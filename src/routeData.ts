@@ -46,20 +46,26 @@ function updateHead(context: APIContext) {
 
 	// Algolia docsearch language facet
 	head.push({ tag: 'meta', attrs: { name: 'docsearch:language', content: lang } });
-
+	const GA_MEASUREMENT_ID = import.meta.env.GA_MEASUREMENT_ID ?? 'G-XXXXXXXXXX';
 	// Google analytics
 	head.push({
 		tag: 'script',
 		attrs: {
-			src: 'https://www.googletagmanager.com/gtag/js?id=G-88E1EPTY62',
-			content: `
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-88E1EPTY62');
-			`,
+			src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+			async: true,
 		},
+	});
+	head.push({
+		tag: 'script',
+		attrs: {},
+		content: `
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '${GA_MEASUREMENT_ID}', {
+            send_page_view: true
+        });`,
 	});
 }
 
